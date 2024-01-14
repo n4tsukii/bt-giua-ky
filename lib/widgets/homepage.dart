@@ -2,7 +2,6 @@ import '/widgets/components/my_drawer.dart';
 import '/models/user_interface.dart';
 import 'package:flutter/material.dart';
 import "package:provider/provider.dart";
-
 List catNames = ["Sinh viên", 'Cài đặt'];
 List<Color> catColors = [
   Color(0xFFFFCF2F),
