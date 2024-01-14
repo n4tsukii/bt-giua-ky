@@ -3,7 +3,12 @@ import "/models/user_interface.dart";
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 
-class MySettings extends StatelessWidget {
+class MySettings extends StatefulWidget{
+  @override
+  State<MySettings> createState() => _MySettings();
+}
+
+class _MySettings extends State<MySettings> {
   @override
   Widget build(BuildContext context) {
     return Consumer<UserInterface>(
@@ -14,7 +19,7 @@ class MySettings extends StatelessWidget {
             backgroundColor: ui.appBarColor,
           ),
 
-          drawer: MyDrawer(),
+          // drawer: MyDrawer(),
 
           body: Column(
             children: [
