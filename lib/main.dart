@@ -6,31 +6,32 @@ import "package:provider/provider.dart";
 
 main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-
 // class MyApp extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
-//     return ChangeNotifierProvider(
-//       create: (context) => UserInterface(),
-//       child: MaterialApp(
-//         initialRoute: "/settings",
-//         routes: {
-//           "/": (context) => MyHomePage(),
-//           //"/support": (context) => MySupport(),
-//           "/settings": (context) => MySettings(),
-//         }
+//     return MaterialApp(
+//       theme: ThemeData(
+//         scaffoldBackgroundColor: Colors.white,
 //       ),
+//       home: MyHomePage(),
 //     );
 //   }
 // }
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => UserInterface(),
+      child: MaterialApp(
+            home: MyHomePage(),
+        // initialRoute: "/settings",
+        // routes: {
+        //   "/": (context) => MyHomePage(),
+        //   //"/support": (context) => MySupport(),
+        //   "/settings": (context) => MySettings(),
+        // }
+      ),
+    );
+  }
+}
