@@ -10,7 +10,7 @@ class MyHomePage extends StatelessWidget {
       builder: (context, ui, child) {
         return Scaffold(
           appBar: AppBar(
-            title: Text("Homepage"),
+            title: const Text("Homepage"),
             backgroundColor: ui.appBarColor,
           ),
 
