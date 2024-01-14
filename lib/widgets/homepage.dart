@@ -1,22 +1,23 @@
+import 'package:setting_tab/widgets/ql_sinhvien.dart';
 import 'package:setting_tab/widgets/settings.dart';
 
 import '/widgets/components/my_drawer.dart';
 import '/models/user_interface.dart';
 import 'package:flutter/material.dart';
 import "package:provider/provider.dart";
-List imgList = ["Sinh viên", 'Cài đặt'];
-List<Color> catColors = [
-  Color(0xFFFFCF2F),
-  Color(0xFF6Fe08D),
-
-];
-
-
-List<Icon> catIcons = [
-  Icon(Icons.manage_accounts_outlined, color: Colors.white, size: 30),
-
-  Icon(Icons.settings_outlined, color: Colors.white, size: 30),
-];
+List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
+// List<Color> catColors = [
+//   Color(0xFFFFCF2F),
+//   Color(0xFF6Fe08D),
+//
+// ];
+//
+//
+// List<Icon> catIcons = [
+//   Icon(Icons.manage_accounts_outlined, color: Colors.white, size: 30),
+//
+//   Icon(Icons.settings_outlined, color: Colors.white, size: 30),
+// ];
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class MyHomePage extends StatelessWidget {
                 bottomRight: Radius.circular(20),
               )
             ),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
@@ -74,6 +75,7 @@ class MyHomePage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MySettings(),
+
                             )
                           );
                         },
