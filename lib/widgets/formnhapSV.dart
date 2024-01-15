@@ -26,35 +26,40 @@ class FormNhapSinhVien extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            TextField(
-              decoration: InputDecoration(labelText: 'Ma sinh vien'),
-              controller: maController,
-              onSubmitted: (_) => submitData(),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: 'Ho va ten'),
-              controller: hoVaTenController,
-              onSubmitted: (_) => submitData(),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: 'Diem tot nghiep'),
-              controller: diemTotNghiepController,
-              onSubmitted: (_) => submitData(),
-            ),
-            TextButton(
-              child: Text('Them sinh vien'),
-              onPressed: (){
-                submitData();
-              },
-            )
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Nhap SV'),
+      ),
+      body: Card(
+        elevation: 5,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              TextField(
+                decoration: InputDecoration(labelText: 'Ma sinh vien'),
+                controller: maController,
+                onSubmitted: (_) => submitData(),
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Ho va ten'),
+                controller: hoVaTenController,
+                onSubmitted: (_) => submitData(),
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Diem tot nghiep'),
+                controller: diemTotNghiepController,
+                onSubmitted: (_) => submitData(),
+              ),
+              TextButton(
+                child: Text('Them sinh vien'),
+                onPressed: (){
+                  submitData();
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

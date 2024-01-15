@@ -1,3 +1,5 @@
+import 'dart:js_util';
+
 import 'package:flutter/material.dart';
 import '../models/sinhvien.dart';
 import '../widgets/formnhapSV.dart';
@@ -63,7 +65,12 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-           FormNhapSinhVien(addSinhVien);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => FormNhapSinhVien.new(newObject()),
+          )
+          );
         },
         child: const Icon(Icons.add),
       ),
