@@ -6,18 +6,6 @@ import 'package:flutter/material.dart';
 import "package:provider/provider.dart";
 
 List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
-// List<Color> catColors = [
-//   Color(0xFFFFCF2F),
-//   Color(0xFF6Fe08D),
-//
-// ];
-//
-//
-// List<Icon> catIcons = [
-//   Icon(Icons.manage_accounts_outlined, color: Colors.white, size: 30),
-//
-//   Icon(Icons.settings_outlined, color: Colors.white, size: 30),
-// ];
 
 class MyHomePage extends StatelessWidget {
   @override
