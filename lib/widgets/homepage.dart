@@ -5,7 +5,7 @@ import '/models/user_interface.dart';
 import 'package:flutter/material.dart';
 import "package:provider/provider.dart";
 
-List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
+List imgList = ['Sinh viên1', 'Môn học', 'Cài đặt'];
 // List<Color> catColors = [
 //   Color(0xFFFFCF2F),
 //   Color(0xFF6Fe08D),
@@ -72,12 +72,22 @@ class MyHomePage extends StatelessWidget {
                     itemBuilder: (context, index){
                       return InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MySettings(),
-                            )
-                          );
+                          if (index == 0) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ql_sinhvien()),
+                            );
+                          // } else if (index == 1) {
+                          //   Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(builder: (context) => ql_monhoc()),
+                          //   )
+                          } else if (index == 2) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MySettings()),
+                            );
+                          }
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
