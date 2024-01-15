@@ -4,7 +4,6 @@ import '/widgets/components/my_drawer.dart';
 import '/models/user_interface.dart';
 import 'package:flutter/material.dart';
 import "package:provider/provider.dart";
-
 List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
 
 class MyHomePage extends StatelessWidget {
@@ -25,7 +24,6 @@ class MyHomePage extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 SizedBox(height: 20),
                 Padding(
                   padding: EdgeInsets.only(left: 3, bottom: 15),
