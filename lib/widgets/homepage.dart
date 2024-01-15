@@ -5,7 +5,7 @@ import '/models/user_interface.dart';
 import 'package:flutter/material.dart';
 import "package:provider/provider.dart";
 
-List imgList = ['Sinh viên1', 'Môn học', 'Cài đặt'];
+List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
 // List<Color> catColors = [
 //   Color(0xFFFFCF2F),
 //   Color(0xFF6Fe08D),

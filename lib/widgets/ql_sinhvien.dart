@@ -63,7 +63,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FormNhapSinhVien(addSinhVien);
+           FormNhapSinhVien(addSinhVien);
         },
         child: const Icon(Icons.add),
       ),
