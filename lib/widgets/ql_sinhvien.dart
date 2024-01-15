@@ -8,7 +8,7 @@ class ql_sinhvien extends StatefulWidget {
   State<ql_sinhvien> createState() => _QuanLySinhVienState();
 }
 
-class _QuanLySinhVienState extends State<ql_sinhvien> {
+class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
   final List<SinhVien> danhSachSinhVien = [
     SinhVien(
       maSV : 12345678,
@@ -34,6 +34,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> {
 
     setState(() {
       danhSachSinhVien.add(newSinhVien);
+      notifyListeners();
     });
   }
 

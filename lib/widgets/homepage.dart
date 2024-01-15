@@ -70,24 +70,9 @@ class MyHomePage extends StatelessWidget {
                       crossAxisSpacing: 10,
                     ),
                     itemBuilder: (context, index){
-                      return InkWell(
+                      return GestureDetector(
                         onTap: () {
-                          if (index == 0) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ql_sinhvien()),
-                            );
-                          // } else if (index == 1) {
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(builder: (context) => ql_monhoc()),
-                          //   )
-                          } else if (index == 2) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => MySettings()),
-                            );
-                          }
+                          handleNavigation(context, index);
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
@@ -161,6 +146,21 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+void handleNavigation(BuildContext context, int index) {
+  if (index == 0) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ql_sinhvien()),
+    );
+  } else if (index == 1) {
+  } else if (index == 2) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MySettings()),
+    );
+  }
+}
+
 // class MyHomePage extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
