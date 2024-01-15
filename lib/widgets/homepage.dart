@@ -1,10 +1,10 @@
 import 'package:setting_tab/widgets/ql_sinhvien.dart';
 import 'package:setting_tab/widgets/settings.dart';
-
 import '/widgets/components/my_drawer.dart';
 import '/models/user_interface.dart';
 import 'package:flutter/material.dart';
 import "package:provider/provider.dart";
+
 List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
 // List<Color> catColors = [
 //   Color(0xFFFFCF2F),
@@ -18,6 +18,7 @@ List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
 //
 //   Icon(Icons.settings_outlined, color: Colors.white, size: 30),
 // ];
+
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -70,12 +71,11 @@ class MyHomePage extends StatelessWidget {
                     ),
                     itemBuilder: (context, index){
                       return InkWell(
-                        onTap: (){
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MySettings(),
-
                             )
                           );
                         },
@@ -107,7 +107,6 @@ class MyHomePage extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       );
                     },
                     // itemCount: catNames.length,

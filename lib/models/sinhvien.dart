@@ -1,6 +1,6 @@
 class SinhVien {
   final int maSV;
-  final int hoten;
+  final String hoten;
   final double diem;
   final DateTime ngaySinh;
 
