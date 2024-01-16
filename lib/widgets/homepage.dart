@@ -34,10 +34,14 @@ class MyHomePage extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  trailing: CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage('assests/icons/internship.png'),
+                  leading: Image(
+                      image: AssetImage("assests/icons/internship.png"),
                   ),
+                  // trailing: CircleAvatar(
+                  //   radius: 30,
+                  //   backgroundImage: AssetImage('assests/icons/internship.png'),
+                  // ),
+                  //
                 ),
                 SizedBox(height: 30),
               ],
@@ -85,14 +89,14 @@ class MyHomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               child: Image.asset(
                                 "assests/icons/${imgList[index]}.png",
                                 width: 70,
                                 height: 70,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               imgList[index],
                               style: TextStyle(
