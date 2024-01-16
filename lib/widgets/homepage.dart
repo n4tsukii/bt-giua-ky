@@ -211,7 +211,7 @@ void handleNavigation(BuildContext context, int index) {
   } else if (index == 2) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MySettings()),
+      MaterialPageRoute(builder: (context) => const MySettings()),
     );
   }
 }

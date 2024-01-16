@@ -17,7 +17,7 @@ class _MySettings extends State<MySettings> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Settings",
+            "Cài đặt",
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w600,
