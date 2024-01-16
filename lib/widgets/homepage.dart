@@ -20,35 +20,26 @@ class MyHomePage extends StatelessWidget {
                 bottomRight: Radius.circular(50),
               )
             ),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 50),
+                SizedBox(height: 50),
                 ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
                   title: Text(
                     'Quản lý sinh viên',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white)
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                    ),
                   ),
-                  trailing: const CircleAvatar(
+                  trailing: CircleAvatar(
                     radius: 30,
                     backgroundImage: AssetImage('assests/icons/internship.png'),
                   ),
                 ),
-                const SizedBox(height: 30),
-                // Padding(
-                //   padding: EdgeInsets.only(left: 3, bottom: 15),
-                //   child: Text(
-                //       'Quản lý sinh viên',
-                //     style: TextStyle(
-                //       fontSize: 25,
-                //       fontWeight: FontWeight.w600,
-                //       letterSpacing: 1,
-                //       wordSpacing: 2,
-                //       color: Colors.white,
-                //     ),
-                //   ),
-                // ),
+                SizedBox(height: 30),
               ],
             ),
           ),
@@ -79,12 +70,12 @@ class MyHomePage extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white30,
                           boxShadow: [
                             BoxShadow(
-                              offset: const Offset(0, 5),
-                              color: Theme.of(context).primaryColor.withOpacity(.2),
+                              offset: const Offset(0, 1),
+                              color: Colors.white.withOpacity(0.2),
                               spreadRadius: 2,
                               blurRadius: 5,
                             )
