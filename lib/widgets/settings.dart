@@ -20,9 +20,18 @@ class _MySettings extends State<MySettings> {
             "Settings",
             style: TextStyle(
               fontSize: 25,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1,
+              wordSpacing: 2,
               color: Colors.white,
             ),
           ),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(20),
+                bottomLeft: Radius.circular(20)),
+          ),
+          elevation: 0.00,
           backgroundColor: Colors.blueAccent,
         ),
         body: Center(
