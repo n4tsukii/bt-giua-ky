@@ -9,89 +9,63 @@ class MySettings extends StatefulWidget {
 }
 
 class _MySettings extends State<MySettings> {
-  bool _isDark =false;
+  bool _isDark = false;
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Theme(
       data: _isDark ? ThemeData.dark() : ThemeData.light(),
       child: Scaffold(
-        body: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 10),
-              decoration: const BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                  )
-              ),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 20),
-                  Padding(
-                      padding: EdgeInsets.only(left: 3, bottom: 15),
-                      child: Text(
-                        'Cai dat',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 1,
-                          wordSpacing: 2,
-                          color: Colors.white,
-                        ),
-                      ),
-                  ),
-                ],
-              ),
+        appBar: AppBar(
+          title: const Text(
+            "Settings",
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.white,
             ),
-            Container(
-              constraints: const BoxConstraints(maxWidth: 400),
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  _SingleSection(
-                      title: 'General',
-                      children: [
-                        _CustomListTile(
-                            title: 'Dark Mode',
-                            icon: Icons.dark_mode_outlined,
-                          trailing: Switch(
+          ),
+          backgroundColor: Colors.blueAccent,
+        ),
+        body: Center(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView(
+              children: [
+                _SingleSection(
+                  title: "General",
+                  children: [
+                    _CustomListTile(
+                        title: "Dark Mode",
+                        icon: Icons.dark_mode_outlined,
+                        trailing: Switch(
                             value: _isDark,
                             onChanged: (value) {
                               setState(() {
                                 _isDark = value;
                               });
-                            },
-                          ),
-                        ),
-                        const _CustomListTile(
-                            title: "Notifications",
-                            icon: Icons.notifications_none_rounded
-                        ),
-                        const _CustomListTile(
-                            title: "Security Status",
-                            icon: CupertinoIcons.lock_shield
-                        ),
-                      ],
-                  ),
-                  const Divider(),
-                  const _SingleSection(
-                    children: [
-                      _CustomListTile(
-                          title: "Help & Feedback",
-                          icon: Icons.help_outline_rounded),
-                      _CustomListTile(
-                          title: "About", icon: Icons.info_outline_rounded),
-                      _CustomListTile(
-                          title: "Sign out", icon: Icons.exit_to_app_rounded),
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ],
+                            })),
+                    const _CustomListTile(
+                        title: "Notifications",
+                        icon: Icons.notifications_none_rounded),
+                    const _CustomListTile(
+                        title: "Security Status",
+                        icon: CupertinoIcons.lock_shield),
+                  ],
+                ),
+                const Divider(),
+                const _SingleSection(
+                  children: [
+                    _CustomListTile(
+                        title: "Help & Feedback",
+                        icon: Icons.help_outline_rounded),
+                    _CustomListTile(
+                        title: "About", icon: Icons.info_outline_rounded),
+                    _CustomListTile(
+                        title: "Sign out", icon: Icons.exit_to_app_rounded),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -147,3 +121,95 @@ class _SingleSection extends StatelessWidget {
     );
   }
 }
+
+// class _MySettings extends State<MySettings> {
+//   bool _isDark =false;
+//   @override
+//   Widget build(BuildContext context){
+//     return Theme(
+//       data: _isDark ? ThemeData.dark() : ThemeData.light(),
+//       child: Scaffold(
+//         body: Column(
+//           children: [
+//             Container(
+//               padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 15),
+//               decoration: const BoxDecoration(
+//                   color: Colors.blueAccent,
+//                   borderRadius: BorderRadius.only(
+//                     bottomLeft: Radius.circular(20),
+//                     bottomRight: Radius.circular(20),
+//                   )
+//               ),
+//               child: const Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   SizedBox(height: 20),
+//                   Padding(
+//                       padding: EdgeInsets.only(left: 3, bottom: 15),
+//                       child: Text(
+//                         'Cai dat',
+//                         style: TextStyle(
+//                           fontSize: 25,
+//                           fontWeight: FontWeight.w600,
+//                           letterSpacing: 1,
+//                           wordSpacing: 2,
+//                           color: Colors.white,
+//                         ),
+//                       ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//             Container(
+//               constraints: const BoxConstraints(maxWidth: 400),
+//               child: ListView(
+//                 shrinkWrap: true,
+//                 children: [
+//                   _SingleSection(
+//                       title: 'General',
+//                       children: [
+//                         _CustomListTile(
+//                             title: 'Dark Mode',
+//                             icon: Icons.dark_mode_outlined,
+//                           trailing: Switch(
+//                             value: _isDark,
+//                             onChanged: (value) {
+//                               setState(() {
+//                                 _isDark = value;
+//                               });
+//                             },
+//                           ),
+//                         ),
+//                         const _CustomListTile(
+//                             title: "Notifications",
+//                             icon: Icons.notifications_none_rounded
+//                         ),
+//                         const _CustomListTile(
+//                             title: "Security Status",
+//                             icon: CupertinoIcons.lock_shield
+//                         ),
+//                       ],
+//                   ),
+//                   const Divider(),
+//                   const _SingleSection(
+//                     children: [
+//                       _CustomListTile(
+//                           title: "Help & Feedback",
+//                           icon: Icons.help_outline_rounded),
+//                       _CustomListTile(
+//                           title: "About", icon: Icons.info_outline_rounded),
+//                       _CustomListTile(
+//                           title: "Sign out", icon: Icons.exit_to_app_rounded),
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
