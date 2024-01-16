@@ -1,69 +1,69 @@
 import "package:flutter/material.dart";
+import "package:setting_tab/models/sinhvien.dart";
+import 'package:provider/provider.dart';
 
 class FormNhapSinhVien extends StatelessWidget {
-  final Function addSinhVien;
-
   final maController = TextEditingController();
   final hoVaTenController = TextEditingController();
   final diemTotNghiepController = TextEditingController();
 
-  FormNhapSinhVien(this.addSinhVien);
-
-  submitData() {
-    final enterMaController = maController.text;
-    final enterHoVaTenController = hoVaTenController.text;
-    final enterDiemController = diemTotNghiepController.text;
-
-    if (enterHoVaTenController.length > 3)
-      addSinhVien(
-        int.parse(enterMaController),
-        enterHoVaTenController,
-        double.parse(enterDiemController),
-      );
-    else
-      return;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Nhap SV'),
-      ),
-      body: Card(
-        elevation: 5,
-        child: Container(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              TextField(
-                decoration: InputDecoration(labelText: 'Ma sinh vien'),
-                controller: maController,
-                onSubmitted: (_) => submitData(),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Ho va ten'),
-                controller: hoVaTenController,
-                onSubmitted: (_) => submitData(),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Diem tot nghiep'),
-                controller: diemTotNghiepController,
-                onSubmitted: (_) => submitData(),
+    return Consumer<StudentProvider>(
+        builder: (context, studentProvider, child) {
+          return AlertDialog(
+            title: Text('Thêm sinh viên'),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextField(
+                  controller: maController,
+                  decoration: InputDecoration(labelText: 'Mã sinh viên'),
+                ),
+                TextField(
+                  controller: hoVaTenController,
+                  decoration: InputDecoration(labelText: 'Họ và Tên'),
+                ),
+                TextField(
+                  controller: diemTotNghiepController,
+                  decoration: InputDecoration(labelText: 'Điểm'),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('Hủy'),
               ),
               TextButton(
-                child: Text('Them sinh vien'),
-                onPressed: (){
-                  submitData();
+                onPressed: () {
+                  int id = maController.hashCode;
+                  String name = hoVaTenController.text;
+                  double diem = double.parse(diemTotNghiepController.text);
+
+                  Provider.of<StudentProvider>(context, listen: false)
+                      .addStudent(id, name, diem);
+
+                  Navigator.of(context).pop();
                 },
-              )
+                child: Text('Thêm'),
+              ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
+          );
+        },
+      );
+    }
 }
 
+class StudentProvider with ChangeNotifier {
+  SinhVien? _currentStudent;
 
+  SinhVien? get currentStudent => _currentStudent;
+
+  void addStudent(int maSV,String hoten, double diem) {
+    _currentStudent = SinhVien(maSV: maSV, hoten: hoten, diem: diem);
+    notifyListeners();
+  }
+}
