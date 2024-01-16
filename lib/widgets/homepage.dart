@@ -61,7 +61,7 @@ class MyHomePage extends StatelessWidget {
                           handleNavigation(context, index);
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
