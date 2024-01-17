@@ -3,6 +3,8 @@ import "package:setting_tab/models/sinhvien.dart";
 import 'package:provider/provider.dart';
 
 class FormNhapSinhVien extends StatelessWidget {
+  FormNhapSinhVien({super.key});
+
   final maController = TextEditingController();
   final hoVaTenController = TextEditingController();
   final diemTotNghiepController = TextEditingController();
@@ -12,21 +14,21 @@ class FormNhapSinhVien extends StatelessWidget {
     return Consumer<StudentProvider>(
         builder: (context, studentProvider, child) {
           return AlertDialog(
-            title: Text('Thêm sinh viên'),
+            title: const Text('Thêm sinh viên'),
             content: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextField(
                   controller: maController,
-                  decoration: InputDecoration(labelText: 'Mã sinh viên'),
+                  decoration: const InputDecoration(labelText: 'Mã sinh viên'),
                 ),
                 TextField(
                   controller: hoVaTenController,
-                  decoration: InputDecoration(labelText: 'Họ và Tên'),
+                  decoration: const InputDecoration(labelText: 'Họ và Tên'),
                 ),
                 TextField(
                   controller: diemTotNghiepController,
-                  decoration: InputDecoration(labelText: 'Điểm'),
+                  decoration: const InputDecoration(labelText: 'Điểm'),
                 ),
               ],
             ),
@@ -35,7 +37,7 @@ class FormNhapSinhVien extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('Hủy'),
+                child: const Text('Hủy'),
               ),
               TextButton(
                 onPressed: () {
@@ -47,7 +49,7 @@ class FormNhapSinhVien extends StatelessWidget {
                       .addStudent(id, name, diem);
                   Navigator.of(context).pop();
                 },
-                child: Text('Thêm'),
+                child: const Text('Thêm'),
               ),
             ],
           );
@@ -56,12 +58,23 @@ class FormNhapSinhVien extends StatelessWidget {
     }
 }
 
+// class StudentProvider with ChangeNotifier {
+//   SinhVien? _currentStudent;
+//   SinhVien? get currentStudent => _currentStudent;
+//
+//   void addStudent(int maSV,String hoten, double diem) {
+//     _currentStudent = SinhVien(maSV: maSV, hoten: hoten, diem: diem);
+//     notifyListeners();
+//   }
+// }
 class StudentProvider with ChangeNotifier {
-  SinhVien? _currentStudent;
-  SinhVien? get currentStudent => _currentStudent;
+  final List<SinhVien> _currentStudent = [];
 
-  void addStudent(int maSV,String hoten, double diem) {
-    _currentStudent = SinhVien(maSV: maSV, hoten: hoten, diem: diem);
+  List<SinhVien> get currentStudent => _currentStudent;
+
+  void addStudent(int maSV, String hoten, double diem) {
+    SinhVien newStudent = SinhVien(maSV: maSV, hoten: hoten, diem: diem);
+    _currentStudent.add(newStudent);
     notifyListeners();
   }
 }
