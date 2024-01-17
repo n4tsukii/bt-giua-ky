@@ -39,13 +39,12 @@ class FormNhapSinhVien extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  int id = maController.hashCode;
+                  int id = int.parse(maController.text);
                   String name = hoVaTenController.text;
                   double diem = double.parse(diemTotNghiepController.text);
 
                   Provider.of<StudentProvider>(context, listen: false)
                       .addStudent(id, name, diem);
-
                   Navigator.of(context).pop();
                 },
                 child: Text('Thêm'),
@@ -59,7 +58,6 @@ class FormNhapSinhVien extends StatelessWidget {
 
 class StudentProvider with ChangeNotifier {
   SinhVien? _currentStudent;
-
   SinhVien? get currentStudent => _currentStudent;
 
   void addStudent(int maSV,String hoten, double diem) {
