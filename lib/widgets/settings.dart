@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'components/custom_widget.dart';
+import 'components/theme.dart';
+
 class MySettings extends StatefulWidget {
   const MySettings({Key? key}) : super(key: key);
   @override
@@ -8,11 +11,13 @@ class MySettings extends StatefulWidget {
 }
 
 class _MySettings extends State<MySettings> {
-  bool _isDark = false;
+  bool _darkTheme = false;
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    _darkTheme = (themeNotifier.getTheme() == darkTheme);
     return Theme(
-      data: _isDark ? ThemeData.dark() : ThemeData.light(),
+      data: _darkTheme ? ThemeData.dark() : ThemeData.light(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -38,6 +43,21 @@ class _MySettings extends State<MySettings> {
             constraints: const BoxConstraints(maxWidth: 400),
             child: ListView(
               children: [
+                // ListTile(
+                //   leading: const Icon(Icons.brush_outlined),
+                //   title: const Text('Theme'),
+                //   contentPadding:
+                //   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                //   trailing: DayNightSwitcher(
+                //     isDarkModeEnabled: _darkTheme,
+                //     onStateChanged: (val) {
+                //       setState(() {
+                //         _darkTheme = val;
+                //       });
+                //       onThemeChanged(val, themeNotifier);
+                //     },
+                //   ),
+                // ),
                 SingleSection(
                   title: "General",
                   children: [
@@ -45,12 +65,14 @@ class _MySettings extends State<MySettings> {
                         title: "Chế độ tối",
                         icon: Icons.dark_mode_outlined,
                         trailing: Switch(
-                            value: _isDark,
+                            value: _darkTheme,
                             onChanged: (value) {
                               setState(() {
-                                _isDark = value;
+                                _darkTheme = value;
                               });
-                            })),
+                              onThemeChanged(value,  themeNotifier);
+                            })
+                    ),
                     const CustomListTile(
                         title: "Thông báo",
                         icon: Icons.notifications_none_rounded),
