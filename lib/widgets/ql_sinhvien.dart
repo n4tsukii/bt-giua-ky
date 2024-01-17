@@ -13,19 +13,35 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Quản Lý Sinh Viên"),
+        title: const Text(
+          "Danh sách sinh viên",
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1,
+            wordSpacing: 2,
+            color: Colors.white,
+          ),
+        ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20)),
+        ),
+        elevation: 0.00,
+        backgroundColor: Colors.blueAccent,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Consumer<StudentProvider>(
                 builder: (context, studentProvider, child) {
-                    if (studentProvider.currentStudent != null)
+                    if (studentProvider.currentStudent != null){
                       return Card(
                         child: Row(
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.symmetric(
                                 vertical: 10,
                                 horizontal: 15,
                               ),
@@ -35,10 +51,11 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
                                     width: 2,
                                   )
                               ),
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               child: Text(
-                                  studentProvider.currentStudent!.diem.toString(),
-                                  style: TextStyle (
+                                  studentProvider.currentStudent!.diem
+                                      .toString(),
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                     color: Colors.purple,
@@ -48,9 +65,11 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  studentProvider.currentStudent!.maSV.toString() + ' - ' + studentProvider.currentStudent!.hoten,
-                                  style: TextStyle(
+                                 Text(
+                                  studentProvider.currentStudent!.maSV
+                                      .toString() + ' - ' +
+                                      studentProvider.currentStudent!.hoten,
+                                  style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold
                                   ),
@@ -60,8 +79,9 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
                           ],
                         ),
                       );
-                    else
-                      return Text('Chưa thêm sinh viên nào', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, ),);
+                } else {
+                  return const Text('Chưa thêm sinh viên nào', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, ),);
+                  }
                 })
           ],
         ),
