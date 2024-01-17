@@ -4,7 +4,6 @@ import "/widgets/homepage.dart";
 import "/models/user_interface.dart";
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
-import 'widgets/components/theme.dart';
 import '../models/sinhvien.dart';
 
 main() => runApp(MyApp());
