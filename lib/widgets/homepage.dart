@@ -37,11 +37,6 @@ class MyHomePage extends StatelessWidget {
                   leading: Image(
                       image: AssetImage("assests/icons/internship.png"),
                   ),
-                  // trailing: CircleAvatar(
-                  //   radius: 30,
-                  //   backgroundImage: AssetImage('assests/icons/internship.png'),
-                  // ),
-                  //
                 ),
                 SizedBox(height: 30),
               ],
@@ -112,53 +107,6 @@ class MyHomePage extends StatelessWidget {
                   },
                 ),
               ),
-
-
-              // child: Column(
-              //   children: [
-              //     GridView.builder(
-              //       itemCount: imgList.length,
-              //       shrinkWrap: true,
-              //       physics: NeverScrollableScrollPhysics(),
-              //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              //         crossAxisCount: 2,
-              //         childAspectRatio: 0.9,
-              //       ),
-              //       itemBuilder: (context, index){
-              //         return GestureDetector(
-              //           onTap: () {
-              //             handleNavigation(context, index);
-              //           },
-              //           child: Container(
-              //             padding: EdgeInsets.symmetric(vertical: 40),
-              //             decoration: BoxDecoration(
-              //               borderRadius: BorderRadius.circular(20),
-              //               color: Colors.white,
-              //             ),
-              //             child: Column(
-              //               children: [
-              //                 Padding(
-              //                   padding: EdgeInsets.all(10),
-              //                   child: Image.asset(
-              //                     "assests/icons/${imgList[index]}.png",
-              //                     width: 60,
-              //                     height: 60,
-              //                   ),
-              //                 ),
-              //                 SizedBox(height: 10),
-              //                 Text(
-              //                     imgList[index],
-              //                   style: TextStyle(
-              //                     fontSize: 16,
-              //                     fontWeight: FontWeight.w500,
-              //                     color: Colors.black.withOpacity(0.7),
-              //                   ),
-              //                 )
-              //               ],
-              //             ),
-              //           ),
-              //         );
-              //       },
               //       // itemCount: catNames.length,
               //       // shrinkWrap: true,
               //       //   physics: NeverScrollableScrollPhysics(),
