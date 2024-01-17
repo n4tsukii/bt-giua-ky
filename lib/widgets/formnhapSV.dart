@@ -57,24 +57,3 @@ class FormNhapSinhVien extends StatelessWidget {
       );
     }
 }
-
-// class StudentProvider with ChangeNotifier {
-//   SinhVien? _currentStudent;
-//   SinhVien? get currentStudent => _currentStudent;
-//
-//   void addStudent(int maSV,String hoten, double diem) {
-//     _currentStudent = SinhVien(maSV: maSV, hoten: hoten, diem: diem);
-//     notifyListeners();
-//   }
-// }
-class StudentProvider with ChangeNotifier {
-  final List<SinhVien> _currentStudent = [];
-
-  List<SinhVien> get currentStudent => _currentStudent;
-
-  void addStudent(int maSV, String hoten, double diem) {
-    SinhVien newStudent = SinhVien(maSV: maSV, hoten: hoten, diem: diem);
-    _currentStudent.add(newStudent);
-    notifyListeners();
-  }
-}
