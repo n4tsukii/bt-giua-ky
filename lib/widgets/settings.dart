@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'components/custom_widget.dart';
 class MySettings extends StatefulWidget {
   const MySettings({Key? key}) : super(key: key);
-
   @override
   State<MySettings> createState() => _MySettings();
 }
@@ -39,11 +38,11 @@ class _MySettings extends State<MySettings> {
             constraints: const BoxConstraints(maxWidth: 400),
             child: ListView(
               children: [
-                _SingleSection(
+                SingleSection(
                   title: "General",
                   children: [
-                    _CustomListTile(
-                        title: "Dark Mode",
+                    CustomListTile(
+                        title: "Chế độ tối",
                         icon: Icons.dark_mode_outlined,
                         trailing: Switch(
                             value: _isDark,
@@ -52,24 +51,24 @@ class _MySettings extends State<MySettings> {
                                 _isDark = value;
                               });
                             })),
-                    const _CustomListTile(
-                        title: "Notifications",
+                    const CustomListTile(
+                        title: "Thông báo",
                         icon: Icons.notifications_none_rounded),
-                    const _CustomListTile(
-                        title: "Security Status",
+                    const CustomListTile(
+                        title: "Bảo mật",
                         icon: CupertinoIcons.lock_shield),
                   ],
                 ),
                 const Divider(),
-                const _SingleSection(
+                const SingleSection(
                   children: [
-                    _CustomListTile(
-                        title: "Help & Feedback",
+                    CustomListTile(
+                        title: "Trợ giúp",
                         icon: Icons.help_outline_rounded),
-                    _CustomListTile(
-                        title: "About", icon: Icons.info_outline_rounded),
-                    _CustomListTile(
-                        title: "Sign out", icon: Icons.exit_to_app_rounded),
+                    CustomListTile(
+                        title: "Thông tin ứng dụng", icon: Icons.info_outline_rounded),
+                    CustomListTile(
+                        title: "Đăng xuất", icon: Icons.exit_to_app_rounded),
                   ],
                 ),
               ],
@@ -77,56 +76,6 @@ class _MySettings extends State<MySettings> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _CustomListTile extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Widget? trailing;
-  const _CustomListTile(
-      {Key? key, required this.title, required this.icon, this.trailing})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title),
-      leading: Icon(icon),
-      trailing: trailing,
-      onTap: () {},
-    );
-  }
-}
-
-class _SingleSection extends StatelessWidget {
-  final String? title;
-  final List<Widget> children;
-  const _SingleSection({
-    Key? key,
-    this.title,
-    required this.children,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (title != null)
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              title!,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-        Column(
-          children: children,
-        ),
-      ],
     );
   }
 }

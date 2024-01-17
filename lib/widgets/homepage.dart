@@ -1,6 +1,5 @@
-import 'package:setting_tab/widgets/ql_sinhvien.dart';
-import 'package:setting_tab/widgets/settings.dart';
 import 'package:flutter/material.dart';
+import 'components/custom_widget.dart';
 List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
 
 class MyHomePage extends StatelessWidget {
@@ -149,21 +148,6 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-void handleNavigation(BuildContext context, int index) {
-  if (index == 0) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ql_sinhvien()),
-    );
-  } else if (index == 1) {
-  } else if (index == 2) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const MySettings()),
-    );
-  }
-}
-
 // class MyHomePage extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
