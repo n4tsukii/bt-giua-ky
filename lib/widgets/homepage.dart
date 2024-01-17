@@ -67,13 +67,14 @@ class MyHomePage extends StatelessWidget {
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 10),
+                        margin:EdgeInsets.all(10) ,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.white30,
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.lightBlueAccent,
                           boxShadow: [
                             BoxShadow(
                               offset: const Offset(0, 1),
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.black.withOpacity(0.2),
                               spreadRadius: 2,
                               blurRadius: 5,
                             )
@@ -93,10 +94,10 @@ class MyHomePage extends StatelessWidget {
                             const SizedBox(height: 10),
                             Text(
                               imgList[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
-                                color: Colors.black.withOpacity(0.7),
+                                color: Colors.black,
                               ),
                             )
                           ],
