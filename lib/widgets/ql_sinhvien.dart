@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/formnhapSV.dart';
-import '../widgets/display_listSV.dart';
+import 'sinhvien/formnhapSV.dart';
+import 'sinhvien/display_listSV.dart';
 import '../models/sinhvien.dart';
 
 
