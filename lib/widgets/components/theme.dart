@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
 
-class ThemeNotifier with ChangeNotifier {
-  ThemeData _themeData = lightTheme;
 
-  // ThemeNotifier(this._themeData);
+class ThemeProvider extends ChangeNotifier {
+  bool _isDarkModeEnabled = false;
 
-  ThemeData getTheme() => _themeData;
+  bool get isDarkModeEnabled => _isDarkModeEnabled;
 
-  void setTheme(ThemeData themeData) async {
-    _themeData = themeData;
+  void toggleDarkMode() {
+    _isDarkModeEnabled = !_isDarkModeEnabled;
     notifyListeners();
   }
 }
-
-void onThemeChanged(bool isDarkMode, ThemeNotifier themeNotifier) {
-  themeNotifier.setTheme(isDarkMode ? darkTheme : lightTheme);
-}
-final darkTheme = ThemeData.dark();
-final lightTheme = ThemeData.light();
+// class ThemeNotifier with ChangeNotifier {
+//   ThemeData _themeData = lightTheme;
+//
+//   // ThemeNotifier(this._themeData);
+//
+//   ThemeData getTheme() => _themeData;
+//
+//   void setTheme(ThemeData themeData) async {
+//     _themeData = themeData;
+//     notifyListeners();
+//   }
+// }
+//
+// void onThemeChanged(bool isDarkMode, ThemeNotifier themeNotifier) {
+//   themeNotifier.setTheme(isDarkMode ? darkTheme : lightTheme);
+// }
 // final darkTheme = ThemeData(
 //   primarySwatch: Colors.orange,
 //   fontFamily: 'Product Sans',

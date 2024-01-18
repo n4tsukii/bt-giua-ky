@@ -12,7 +12,6 @@ class MyHomePage extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           Container(
-            // padding: EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 10),
             decoration: const BoxDecoration(
               color: Colors.blueAccent,
               borderRadius: BorderRadius.only(
@@ -43,12 +42,11 @@ class MyHomePage extends StatelessWidget {
           ),
           Container(
             color: Colors.blueAccent,
-              // padding: EdgeInsets.only(top: 20, left: 15, right: 15),
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(100)
                   )
                 ),
@@ -67,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 10),
-                        margin:EdgeInsets.all(10) ,
+                        margin:const EdgeInsets.all(10) ,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
                           color: Colors.lightBlueAccent,
