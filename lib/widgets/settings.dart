@@ -29,10 +29,10 @@ class _MySettings extends State<MySettings> {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20)),
+              bottomLeft: Radius.circular(20)
+          ),
         ),
-        elevation: 0.00,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Provider.of<ThemeProvider>(context).appBarColor,
       ),
       body: Center(
         child: Container(
@@ -49,8 +49,7 @@ class _MySettings extends State<MySettings> {
                           value: _darkTheme,
                           onChanged: (value) {
                             Provider.of<ThemeProvider>(context, listen: false).toggleDarkMode();
-                          })
-                  ),
+                          })),
                   const CustomListTile(
                       title: "Thông báo",
                       icon: Icons.notifications_none_rounded),
@@ -66,9 +65,11 @@ class _MySettings extends State<MySettings> {
                       title: "Trợ giúp",
                       icon: Icons.help_outline_rounded),
                   CustomListTile(
-                      title: "Thông tin ứng dụng", icon: Icons.info_outline_rounded),
+                      title: "Thông tin ứng dụng",
+                      icon: Icons.info_outline_rounded),
                   CustomListTile(
-                      title: "Đăng xuất", icon: Icons.exit_to_app_rounded),
+                      title: "Đăng xuất",
+                      icon: Icons.exit_to_app_rounded),
                 ],
               ),
             ],
@@ -78,4 +79,3 @@ class _MySettings extends State<MySettings> {
     );
   }
 }
-

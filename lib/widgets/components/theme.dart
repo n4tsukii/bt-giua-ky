@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 class ThemeProvider extends ChangeNotifier {
   bool _isDarkModeEnabled = false;
 
   bool get isDarkModeEnabled => _isDarkModeEnabled;
+
+  Color get appBarColor {
+    return _isDarkModeEnabled ? Colors.black45 : Colors.blueAccent;
+  }
 
   void toggleDarkMode() {
     _isDarkModeEnabled = !_isDarkModeEnabled;
@@ -38,7 +41,6 @@ class ThemeProvider extends ChangeNotifier {
 //   const FloatingActionButtonThemeData(foregroundColor: Colors.white),
 //   dividerColor: Colors.black12,
 // );
-
 
 // final lightTheme = ThemeData(
 //   primarySwatch: Colors.orange,

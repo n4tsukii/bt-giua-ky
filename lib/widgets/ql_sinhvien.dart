@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'sinhvien/formnhapSV.dart';
-import 'sinhvien/display_listSV.dart';
+import 'package:provider/provider.dart';
 import '../models/sinhvien.dart';
-
+import 'components/theme.dart';
+import 'sinhvien/display_listSV.dart';
+import 'sinhvien/formnhapSV.dart';
 
 class ql_sinhvien extends StatefulWidget {
   const ql_sinhvien({super.key});
@@ -15,7 +16,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           "Danh sách sinh viên",
           style: TextStyle(
@@ -32,7 +33,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
               bottomLeft: Radius.circular(20)),
         ),
         elevation: 0.00,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Provider.of<ThemeProvider>(context).appBarColor,
       ),
       body: SingleChildScrollView(
           child: DanhSachSinhVien(danhSachSinhVien)
