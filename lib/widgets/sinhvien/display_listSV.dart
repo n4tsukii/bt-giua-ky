@@ -47,6 +47,13 @@ class DanhSachSinhVien extends StatelessWidget {
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
+                                Text(
+                                  student.lop,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold
+                                  ),
+                                ),
                               ],
                             ),
                           ],

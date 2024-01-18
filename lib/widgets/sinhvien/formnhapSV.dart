@@ -8,7 +8,7 @@ class FormNhapSinhVien extends StatelessWidget {
   final maController = TextEditingController();
   final hoVaTenController = TextEditingController();
   final diemTotNghiepController = TextEditingController();
-
+  final lopController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Consumer<StudentProvider>(
@@ -25,6 +25,10 @@ class FormNhapSinhVien extends StatelessWidget {
                 TextField(
                   controller: hoVaTenController,
                   decoration: const InputDecoration(labelText: 'Họ và Tên'),
+                ),
+                TextField(
+                  controller: lopController,
+                  decoration: const InputDecoration(labelText: 'Lớp'),
                 ),
                 TextField(
                   controller: diemTotNghiepController,
@@ -44,9 +48,10 @@ class FormNhapSinhVien extends StatelessWidget {
                   int id = int.parse(maController.text);
                   String name = hoVaTenController.text;
                   double diem = double.parse(diemTotNghiepController.text);
+                  String lop = lopController.text;
 
                   Provider.of<StudentProvider>(context, listen: false)
-                      .addStudent(id, name, diem);
+                      .addStudent(id, name, diem, lop);
                   Navigator.of(context).pop();
                 },
                 child: const Text('Thêm'),
