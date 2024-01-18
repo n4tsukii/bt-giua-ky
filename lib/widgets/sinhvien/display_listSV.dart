@@ -19,6 +19,7 @@ class DanhSachSinhVien extends StatelessWidget {
                     children: studentProvider.currentStudent.map((student) {
                       return Card(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             Container(
                               margin: const EdgeInsets.symmetric(
@@ -42,13 +43,19 @@ class DanhSachSinhVien extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${student.maSV} - ${student.hoten}',
+                                  'Mã sinh viên: ${student.maSV}',
                                   style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
-                                  student.lop,
+                                  'Họ tên: ${student.hoten}',
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Lớp: ${student.lop}",
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold
