@@ -15,7 +15,10 @@ class SinhVien {
 }
 
 class StudentProvider with ChangeNotifier {
-  List<SinhVien> dsSV = [];
+  List<SinhVien> dsSV = [
+    SinhVien(maSV: 22010498, hoten: "Pham Nhu Thuat", diem: 2, lop: "K16"),
+    SinhVien(maSV: 21010651, hoten: "Manh Tam", diem: 3, lop: "K15"),
+  ];
   List<SinhVien> get currentStudent => dsSV;
 
   void addStudent(int maSV, String hoten, double diem, String lop) {

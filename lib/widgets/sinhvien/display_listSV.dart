@@ -18,10 +18,6 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          // ElevatedButton(
-          //   onPressed: () => _showThresholdDialog(context),
-          //   child: const Text('Lọc Sinh Viên'),
-          // ),
           Consumer<StudentProvider>(
             builder: (context, studentProvider, child) {
               if (studentProvider.currentStudent.isNotEmpty) {
@@ -129,41 +125,5 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
   void _deleteStudent(BuildContext context, SinhVien student) {
     Provider.of<StudentProvider>(context, listen: false).deleteStudent(student);
   }
-
-  //
-  // Future<void> _showThresholdDialog(BuildContext context) async {
-  //   return showDialog<void>(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         title: const Text('Nhập giá trị n'),
-  //         content: TextField(
-  //           keyboardType: TextInputType.number,
-  //           onChanged: (value) {
-  //             setState(() {
-  //               threshold = double.tryParse(value) ?? 0.0;
-  //             });
-  //           },
-  //           decoration: const InputDecoration(labelText: 'Nhập giá trị n'),
-  //         ),
-  //         actions: <Widget>[
-  //           TextButton(
-  //             onPressed: () {
-  //               Navigator.of(context).pop();
-  //             },
-  //             child: const Text('Hủy'),
-  //           ),
-  //           TextButton(
-  //             onPressed: () {
-  //               Provider.of<StudentProvider>(context, listen: false).filterStudentsByAverage(threshold);
-  //               Navigator.of(context).pop();
-  //             },
-  //             child: const Text('OK'),
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
 
 }
