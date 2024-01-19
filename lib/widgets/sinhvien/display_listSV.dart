@@ -78,11 +78,27 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            IconButton(
-                              icon: Icon(Icons.delete_forever),
-                              onPressed: (){
-                                _deleteStudent(context, student);
+                            PopupMenuButton(
+                              itemBuilder: (context) {
+                                return [
+                                  PopupMenuItem<int>(
+                                    value: 0,
+                                    child: Text("Edit"),
+                                  ),
+
+                                  PopupMenuItem<int>(
+                                    value: 1,
+                                    child: Text("Delete"),
+                                  ),
+                                ];
                               },
+                              onSelected:(value) {
+                                if (value == 0) {
+
+                                } else if (value == 1) {
+                                  _deleteStudent(context, student);
+                                }
+                              }
                             )
                           ],
                         ),
