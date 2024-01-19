@@ -15,8 +15,7 @@ class SinhVien {
 }
 
 class StudentProvider with ChangeNotifier {
-  final List<SinhVien> dsSV = [];
-
+  List<SinhVien> dsSV = [];
   List<SinhVien> get currentStudent => dsSV;
 
   void addStudent(int maSV, String hoten, double diem, String lop) {
@@ -24,8 +23,14 @@ class StudentProvider with ChangeNotifier {
     dsSV.add(newStudent);
     notifyListeners();
   }
+
   void deleteStudent(SinhVien student) {
     dsSV.remove(student);
+    notifyListeners();
+  }
+
+  void filterStudentsByAverage(double threshold) {
+    dsSV = dsSV.where((student) => student.diem > threshold).toList();
     notifyListeners();
   }
 }
