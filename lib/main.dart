@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
           ? ThemeMode.dark
           : ThemeMode.light,
       home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

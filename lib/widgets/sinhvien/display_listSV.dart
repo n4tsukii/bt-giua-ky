@@ -16,20 +16,54 @@ class DanhSachSinhVien extends StatelessWidget {
             children: studentProvider.currentStudent.map((student) {
               return Card(
                 child: ListTile(
-                  title: Text(
-                    'Mã sinh viên: ${student.maSV}',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  title: Row(
                     children: [
-                      Text(
-                        'Họ tên: ${student.hoten}',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.purple,
+                            width: 2,
+                          ),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Text(
+                          student.diem.toString(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.purple,
+                          ),
+                        ),
                       ),
-                      Text(
-                        "Lớp: ${student.lop}",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Mã sinh viên: ${student.maSV}',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'Họ tên: ${student.hoten}',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "Lớp: ${student.lop}",
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -60,6 +94,7 @@ class DanhSachSinhVien extends StatelessWidget {
       },
     );
   }
+
   void _deleteStudent(BuildContext context, SinhVien student) {
     Provider.of<StudentProvider>(context, listen: false).deleteStudent(student);
   }
