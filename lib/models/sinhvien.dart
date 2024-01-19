@@ -24,4 +24,8 @@ class StudentProvider with ChangeNotifier {
     dsSV.add(newStudent);
     notifyListeners();
   }
+  void deleteStudent(SinhVien student) {
+    dsSV.remove(student);
+    notifyListeners();
+  }
 }
