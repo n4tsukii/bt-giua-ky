@@ -10,6 +10,7 @@ void handleNavigation(BuildContext context, int index) {
     );
   } else if (index == 1) {
   } else if (index == 2) {
+  } else if (index == 3) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const MySettings()),
