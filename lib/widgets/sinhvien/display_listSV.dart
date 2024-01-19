@@ -18,10 +18,10 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          ElevatedButton(
-            onPressed: () => _showThresholdDialog(context),
-            child: Text('Lọc Sinh Viên'),
-          ),
+          // ElevatedButton(
+          //   onPressed: () => _showThresholdDialog(context),
+          //   child: const Text('Lọc Sinh Viên'),
+          // ),
           Consumer<StudentProvider>(
             builder: (context, studentProvider, child) {
               if (studentProvider.currentStudent.isNotEmpty) {
@@ -81,14 +81,13 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                             PopupMenuButton(
                               itemBuilder: (context) {
                                 return [
-                                  PopupMenuItem<int>(
+                                  const PopupMenuItem<int>(
                                     value: 0,
-                                    child: Text("Edit"),
+                                    child: Text("Sửa"),
                                   ),
-
-                                  PopupMenuItem<int>(
+                                  const PopupMenuItem<int>(
                                     value: 1,
-                                    child: Text("Delete"),
+                                    child: Text("Xóa"),
                                   ),
                                 ];
                               },
@@ -107,11 +106,16 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                   }).toList(),
                 );
               } else {
-                return const Text(
-                  'Chưa thêm sinh viên nào',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: const Center(
+                    child: Text(
+                      'Chưa có sinh viên nào',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 );
               }
@@ -126,40 +130,40 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
     Provider.of<StudentProvider>(context, listen: false).deleteStudent(student);
   }
 
-
-  Future<void> _showThresholdDialog(BuildContext context) async {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Nhập giá trị n'),
-          content: TextField(
-            keyboardType: TextInputType.number,
-            onChanged: (value) {
-              setState(() {
-                threshold = double.tryParse(value) ?? 0.0;
-              });
-            },
-            decoration: InputDecoration(labelText: 'Nhập giá trị n'),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Hủy'),
-            ),
-            TextButton(
-              onPressed: () {
-                Provider.of<StudentProvider>(context, listen: false).filterStudentsByAverage(threshold);
-                Navigator.of(context).pop();
-              },
-              child: Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  //
+  // Future<void> _showThresholdDialog(BuildContext context) async {
+  //   return showDialog<void>(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: const Text('Nhập giá trị n'),
+  //         content: TextField(
+  //           keyboardType: TextInputType.number,
+  //           onChanged: (value) {
+  //             setState(() {
+  //               threshold = double.tryParse(value) ?? 0.0;
+  //             });
+  //           },
+  //           decoration: const InputDecoration(labelText: 'Nhập giá trị n'),
+  //         ),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //             child: const Text('Hủy'),
+  //           ),
+  //           TextButton(
+  //             onPressed: () {
+  //               Provider.of<StudentProvider>(context, listen: false).filterStudentsByAverage(threshold);
+  //               Navigator.of(context).pop();
+  //             },
+  //             child: const Text('OK'),
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
 }

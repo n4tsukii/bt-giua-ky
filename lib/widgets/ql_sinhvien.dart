@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/sinhvien.dart';
+import '../../models/sinhvien.dart';
 import 'components/theme.dart';
 import 'sinhvien/display_listSV.dart';
 import 'sinhvien/formnhapSV.dart';
@@ -12,6 +12,7 @@ class ql_sinhvien extends StatefulWidget {
 }
 
 class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
+  double threshold = 0.0;
   final List<SinhVien> danhSachSinhVien = [];
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,14 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
             color: Colors.white,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.filter_list_outlined),
+            onPressed: () {
+              _showThresholdDialog(context);
+            },
+          ),
+        ],
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(20),
@@ -48,6 +57,41 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
         },
         child: const Icon(Icons.add),
       ),
+    );
+  }
+
+  Future<void> _showThresholdDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Nhập giá trị n'),
+          content: TextField(
+            keyboardType: TextInputType.number,
+            onChanged: (value) {
+              setState(() {
+                threshold = double.tryParse(value) ?? 0.0;
+              });
+            },
+            decoration: const InputDecoration(labelText: 'Nhập giá trị n'),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Hủy'),
+            ),
+            TextButton(
+              onPressed: () {
+                Provider.of<StudentProvider>(context, listen: false).filterStudentsByAverage(threshold);
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
