@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:setting_tab/widgets/components/theme.dart';
 import 'components/custom_widget.dart';
 
-List imgList = ['Sinh viên', 'Môn học', 'Cài đặt'];
+List imgList = ['Sinh viên', 'Môn học', 'Điểm', 'Cài đặt'];
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -112,29 +112,3 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-// class MyHomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Consumer<UserInterface>(
-//       builder: (context, ui, child) {
-//         return Scaffold(
-//           appBar: AppBar(
-//             title: const Text("Quản lý sinh viên"),
-//             backgroundColor: ui.appBarColor,
-//           ),
-//
-//           drawer: MyDrawer(),
-//
-//           body: Center(
-//             child: Text(
-//               "Trang chủ",
-//               style: TextStyle(
-//                 fontSize: ui.fontSize,
-//               )
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
