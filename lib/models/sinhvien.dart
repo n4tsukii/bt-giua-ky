@@ -4,7 +4,7 @@ import '../models/monhoc.dart';
 class SinhVien {
   late final int maSV;
   late final String hoten;
-  late final double diem;
+  double diem;
   late final String lop;
 
   SinhVien({

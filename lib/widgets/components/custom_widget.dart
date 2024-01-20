@@ -13,7 +13,7 @@ void handleNavigation(BuildContext context, int index) {
   } else if (index == 2) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => GradesScreen()),
+      MaterialPageRoute(builder: (context) => QLDiem()),
     );
   } else if (index == 3) {
     Navigator.push(

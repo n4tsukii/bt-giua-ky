@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/sinhvien.dart';
+import 'components/theme.dart';
 
-class GradesScreen extends StatefulWidget {
+class QLDiem extends StatefulWidget {
   @override
-  _GradesScreenState createState() => _GradesScreenState();
+  _QLDiem createState() => _QLDiem();
 }
 
-class _GradesScreenState extends State<GradesScreen> {
+class _QLDiem extends State<QLDiem> {
   List<SinhVien> students = [];
 
   String selectedStudent = '';
@@ -19,14 +20,29 @@ class _GradesScreenState extends State<GradesScreen> {
     students = Provider.of<StudentProvider>(context).currentStudent;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Điểm'),
+        title: const Text(
+            'Điểm',
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1,
+            wordSpacing: 2,
+            color: Colors.white,
+          ),
+        ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20)),
+        ),
+        elevation: 0.00,
+        backgroundColor: Provider.of<ThemeProvider>(context).appBarColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildStudentDropdown(),
-            _buildSubjectDropdown(),
+            _buildDropdowns(),
             _buildGradeInput(),
             const SizedBox(height: 20),
             ElevatedButton(
@@ -80,18 +96,49 @@ class _GradesScreenState extends State<GradesScreen> {
       }).toList(),
     );
   }
+  Widget _buildDropdowns() {
+    return Row(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _buildStudentDropdown(),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _buildSubjectDropdown(),
+          ),
+        ),
+      ],
+    );
+  }
 
   Widget _buildGradeInput() {
-    return TextField(
-      keyboardType: TextInputType.number,
-      onChanged: (value) {
-        setState(() {
-          grade = double.tryParse(value) ?? 0.0;
-        });
-      },
-      decoration: const InputDecoration(
-        labelText: 'Điểm số',
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Nhập điểm',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        TextField(
+          keyboardType: TextInputType.number,
+          onChanged: (value) {
+            setState(() {
+              grade = double.tryParse(value) ?? 0.0;
+            });
+          },
+          decoration: const InputDecoration(
+            labelText: 'Điểm số',
+          ),
+        ),
+      ],
     );
   }
 
@@ -109,7 +156,7 @@ class _GradesScreenState extends State<GradesScreen> {
       );
 
       // Nếu sinh viên tồn tại, thêm điểm cho môn học đã chọn
-      if(student != null){
+      if (student != null) {
         // Thêm điểm cho môn học đã chọn
         student.diem = grade;
         // Hiển thị thông báo thành công
