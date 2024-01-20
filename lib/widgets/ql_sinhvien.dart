@@ -66,7 +66,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Nhập giá trị n'),
+          title: const Text('Nhập giá trị cần lọc'),
           content: TextField(
             keyboardType: TextInputType.number,
             onChanged: (value) {
@@ -74,7 +74,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
                 threshold = double.tryParse(value) ?? 0.0;
               });
             },
-            decoration: const InputDecoration(labelText: 'Nhập giá trị n'),
+            decoration: const InputDecoration(labelText: 'Nhập giá trị'),
           ),
           actions: <Widget>[
             TextButton(
@@ -85,7 +85,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
             ),
             TextButton(
               onPressed: () {
-                Provider.of<StudentProvider>(context, listen: false).filterStudentsByAverage(threshold);
+                Provider.of<StudentProvider>(context, listen: false).updatethreshold(threshold);
                 Navigator.of(context).pop();
               },
               child: const Text('OK'),
