@@ -51,10 +51,10 @@ class EditStudentScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                int newMaSV = int.parse(maController.text); // replace with actual values
-                String newHoten = hoVaTenController.text;
-                String newLop = lopController.text;
-                double newDiem = double.parse(diemTotNghiepController.text);
+                int newMaSV = maController.text.isNotEmpty ? int.parse(maController.text) : student.maSV;
+                String newHoten = hoVaTenController.text.isNotEmpty ? hoVaTenController.text : student.hoten;
+                String newLop = lopController.text.isNotEmpty ? lopController.text : student.lop;
+                double newDiem = diemTotNghiepController.text.isNotEmpty ? double.parse(diemTotNghiepController.text) : student.diem;
 
                 _deleteStudent(context, student);
                 Provider.of<StudentProvider>(context, listen: false)
