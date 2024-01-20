@@ -42,15 +42,7 @@ class _QLDiem extends State<QLDiem> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildDropdowns(),
             _buildGradeInput(),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _addGrade();
-              },
-              child: const Text('Thêm điểm'),
-            ),
             const SizedBox(height: 20),
             _buildStudentAverage(),
             const SizedBox(height: 20),
@@ -62,56 +54,56 @@ class _QLDiem extends State<QLDiem> {
   }
 
   Widget _buildStudentDropdown() {
-    return DropdownButton<String>(
-      hint: const Text('Chọn sinh viên'),
-      value: selectedStudent.isNotEmpty ? selectedStudent : null,
-      onChanged: (newValue) {
-        setState(() {
-          selectedStudent = newValue!;
-        });
-      },
-      items: students.map((student) {
-        return DropdownMenuItem<String>(
-          value: student.hoten,
-          child: Text(student.hoten),
-        );
-      }).toList(),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: DropdownButton<String>(
+          hint: const Text('Chọn sinh viên'),
+          value: selectedStudent.isNotEmpty ? selectedStudent : null,
+          onChanged: (newValue) {
+            setState(() {
+              selectedStudent = newValue!;
+            });
+          },
+          items: students.map((student) {
+            return DropdownMenuItem<String>(
+              value: student.hoten,
+              child: Text(student.hoten),
+            );
+          }).toList(),
+        ),
+      )
     );
   }
 
   Widget _buildSubjectDropdown() {
-    return DropdownButton<String>(
-      hint: const Text('Chọn môn học'),
-      value: selectedSubject.isNotEmpty ? selectedSubject : null,
-      onChanged: (newValue) {
-        setState(() {
-          selectedSubject = newValue!;
-        });
-      },
-      items: ['Math', 'History', 'Physics', 'Biology'].map((subject) {
-        return DropdownMenuItem<String>(
-          value: subject,
-          child: Text(subject),
-        );
-      }).toList(),
-    );
-  }
-  Widget _buildDropdowns() {
-    return Row(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: _buildStudentDropdown(),
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: DropdownButton<String>(
+          hint: const Text('Chọn môn học'),
+          value: selectedSubject.isNotEmpty ? selectedSubject : null,
+          onChanged: (newValue) {
+            setState(() {
+              selectedSubject = newValue!;
+            });
+          },
+          items: ['Math', 'History', 'Physics', 'Biology'].map((subject) {
+            return DropdownMenuItem<String>(
+              value: subject,
+              child: Text(subject),
+            );
+          }).toList(),
         ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: _buildSubjectDropdown(),
-          ),
-        ),
-      ],
+      )
     );
   }
 
@@ -122,11 +114,24 @@ class _QLDiem extends State<QLDiem> {
         const Text(
           'Nhập điểm',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 12),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: _buildStudentDropdown(),
+            ),
+            SizedBox(width: 16),
+            Expanded(
+              child: _buildSubjectDropdown(),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
         TextField(
           keyboardType: TextInputType.number,
           onChanged: (value) {
@@ -136,8 +141,16 @@ class _QLDiem extends State<QLDiem> {
           },
           decoration: const InputDecoration(
             labelText: 'Điểm số',
+            border: OutlineInputBorder(),
           ),
         ),
+        SizedBox(height: 20),
+        ElevatedButton(
+            onPressed: () {
+              _addGrade();
+            },
+            child: Text('Thêm điểm'),
+        )
       ],
     );
   }
