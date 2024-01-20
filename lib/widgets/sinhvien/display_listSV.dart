@@ -26,82 +26,144 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                 return Column(
                   children: studentProvider.currentStudent.map((student) {
                     return Card(
+                      elevation: 3,
+                      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       child: ListTile(
-                        title: Row(
+                        contentPadding: const EdgeInsets.all(15),
+                        leading: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.purple.withOpacity(0.1),
+                          ),
+                          child: Text(
+                            student.diem.toString(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.purple,
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          'Mã sinh viên: ${student.maSV}',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              margin: const EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 10,
+                            Text(
+                              'Họ tên: ${student.hoten}',
+                              style: const TextStyle(fontSize: 14),
+                            ),
+                            Text(
+                              'Lớp: ${student.lop}',
+                              style: const TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        trailing: PopupMenuButton(
+                          itemBuilder: (context) {
+                            return [
+                              const PopupMenuItem<int>(
+                                value: 0,
+                                child: Text("Sửa"),
                               ),
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.purple,
-                                    width: 2,
-                                  )),
-                              padding: const EdgeInsets.all(10),
-                              child: Text(student.diem.toString(),
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: Colors.purple,
-                                  )),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Mã sinh viên: ${student.maSV}',
-                                  style: const TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  'Họ tên: ${student.hoten}',
-                                  style: const TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "Lớp: ${student.lop}",
-                                  style: const TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                              const PopupMenuItem<int>(
+                                value: 1,
+                                child: Text("Xóa"),
+                              ),
+                            ];
+                          },
+                          onSelected: (value) {
+                            if (value == 0) {
+                              showDialog(
+                                context: context,
+                                builder: (ctx) => EditStudentScreen(studentId: student.maSV.toString()),
+                              );
+                            } else if (value == 1) {
+                              _deleteStudent(context, student);
+                            }
+                          },
                         ),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            PopupMenuButton(
-                              itemBuilder: (context) {
-                                return [
-                                  const PopupMenuItem<int>(
-                                    value: 0,
-                                    child: Text("Sửa"),
-                                  ),
-                                  const PopupMenuItem<int>(
-                                    value: 1,
-                                    child: Text("Xóa"),
-                                  ),
-                                ];
-                              },
-                              onSelected:(value) {
-                                if (value == 0) {
-                                  showDialog(
-                                      context: context,
-                                      builder: (ctx) => EditStudentScreen(studentId: student.maSV.toString())
-                                  );
-                                } else if (value == 1) {
-                                  _deleteStudent(context, student);
-                                }
-                              }
-                            )
-                          ],
-                        ),
+                        // title: Row(
+                        //   children: [
+                        //     Container(
+                        //       margin: const EdgeInsets.symmetric(
+                        //         vertical: 10,
+                        //         horizontal: 10,
+                        //       ),
+                        //       decoration: BoxDecoration(
+                        //           border: Border.all(
+                        //             color: Colors.purple,
+                        //             width: 2,
+                        //           )),
+                        //       padding: const EdgeInsets.all(10),
+                        //       child: Text(student.diem.toString(),
+                        //           style: const TextStyle(
+                        //             fontWeight: FontWeight.bold,
+                        //             fontSize: 18,
+                        //             color: Colors.purple,
+                        //           )),
+                        //     ),
+                        //     Column(
+                        //       crossAxisAlignment: CrossAxisAlignment.start,
+                        //       children: [
+                        //         Text(
+                        //           'Mã sinh viên: ${student.maSV}',
+                        //           style: const TextStyle(
+                        //               fontSize: 15,
+                        //               fontWeight: FontWeight.bold),
+                        //         ),
+                        //         Text(
+                        //           'Họ tên: ${student.hoten}',
+                        //           style: const TextStyle(
+                        //               fontSize: 15,
+                        //               fontWeight: FontWeight.bold),
+                        //         ),
+                        //         Text(
+                        //           "Lớp: ${student.lop}",
+                        //           style: const TextStyle(
+                        //               fontSize: 15,
+                        //               fontWeight: FontWeight.bold
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ],
+                        // ),
+                        // trailing: Row(
+                        //   mainAxisSize: MainAxisSize.min,
+                        //   children: [
+                        //     PopupMenuButton(
+                        //       itemBuilder: (context) {
+                        //         return [
+                        //           const PopupMenuItem<int>(
+                        //             value: 0,
+                        //             child: Text("Sửa"),
+                        //           ),
+                        //           const PopupMenuItem<int>(
+                        //             value: 1,
+                        //             child: Text("Xóa"),
+                        //           ),
+                        //         ];
+                        //       },
+                        //       onSelected:(value) {
+                        //         if (value == 0) {
+                        //           showDialog(
+                        //               context: context,
+                        //               builder: (ctx) => EditStudentScreen(studentId: student.maSV.toString())
+                        //           );
+                        //         } else if (value == 1) {
+                        //           _deleteStudent(context, student);
+                        //         }
+                        //       }
+                        //     )
+                        //   ],
+                        // ),
                       ),
                     );
                   }).toList(),
