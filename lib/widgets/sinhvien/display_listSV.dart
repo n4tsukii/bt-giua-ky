@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:setting_tab/widgets/sinhvien/editSV.dart';
 import '../../models/sinhvien.dart';
+
 
 class DanhSachSinhVien extends StatefulWidget {
   final List<SinhVien> danhSachSinhVien;
@@ -89,7 +91,10 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                               },
                               onSelected:(value) {
                                 if (value == 0) {
-
+                                  showDialog(
+                                      context: context,
+                                      builder: (ctx) => EditStudentScreen(studentId: student.maSV.toString())
+                                  );
                                 } else if (value == 1) {
                                   _deleteStudent(context, student);
                                 }

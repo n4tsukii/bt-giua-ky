@@ -1,16 +1,18 @@
 import 'package:flutter/foundation.dart';
+import '../models/monhoc.dart';
 
 class SinhVien {
-  final int maSV;
-  final String hoten;
-  final double diem;
-  final String lop;
+  late final int maSV;
+  late final String hoten;
+  late final double diem;
+  late final String lop;
 
   SinhVien({
     required this.maSV,
     required this.hoten,
     required this.diem,
     required this.lop,
+
   });
 }
 
@@ -36,4 +38,6 @@ class StudentProvider with ChangeNotifier {
     dsSV = dsSV.where((student) => student.diem > threshold).toList();
     notifyListeners();
   }
+
+
 }

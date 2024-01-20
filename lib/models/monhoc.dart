@@ -1,7 +1,19 @@
-class MonHoc{
-  final String mon;
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
-  MonHoc({
-    required this.mon,
-});
+class subject{
+  final String name;
+  final double? grade;
+
+  subject({
+    this.grade = null,
+    required this.name,
+  });
+}
+
+class SubjectProvider with ChangeNotifier {
+  List<subject> listsubject = [
+    subject(name: "Toan"),
+    subject(name: "Hoa"),
+  ];
 }
