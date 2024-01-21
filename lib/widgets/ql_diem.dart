@@ -181,6 +181,10 @@ class _QLDiem extends State<QLDiem> {
           diem: grade,
         );
         Provider.of<DiemProvider>(context, listen: false).addDiem(newDiem);
+
+        // Cập nhật điểm trung bình của sinh viên sau khi thêm điểm
+        Provider.of<StudentProvider>(context, listen: false).updateStudentAverage(context, student.maSV);
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Đã thêm điểm cho $selectedStudent - $selectedSubject: $grade'),
@@ -230,8 +234,14 @@ class _QLDiem extends State<QLDiem> {
       int studentCount = 0;
 
       for (SinhVien student in students) {
-        if (student.diem != null) {
-          subjectAverage += student.diem;
+        List<Diem> diemSV = Provider.of<DiemProvider>(context).getDiemByMaSV(student.maSV);
+        Diem? diemMonHoc = diemSV.firstWhere(
+              (diem) => diem.tenMonHoc == selectedSubject,
+          orElse: () => Diem(maSV: 0, tenMonHoc: "", diem: 0.0),
+        );
+
+        if (diemMonHoc.maSV != 0) {
+          subjectAverage += diemMonHoc.diem;
           studentCount++;
         }
       }
@@ -239,7 +249,7 @@ class _QLDiem extends State<QLDiem> {
         subjectAverage /= studentCount;
         return Text('Điểm môn $selectedSubject: ${subjectAverage.toStringAsFixed(2)}');
       } else {
-        return Text('Chưa có sinh viên nào có điểm môn $selectedSubject');
+        return Text('Sinh viên chưa có điểm môn $selectedSubject');
       }
     }
     return Container();

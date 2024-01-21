@@ -1,4 +1,7 @@
 import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
+import 'diem.dart';
 
 class SinhVien {
   late final int maSV;
@@ -44,5 +47,10 @@ class StudentProvider with ChangeNotifier {
   List<SinhVien> filterStudents(double threshold) {
     return dsSV.where((student) => student.diem > threshold).toList();
   }
-
+  void updateStudentAverage(BuildContext context ,int maSV){
+    double average = Provider.of<DiemProvider>(context, listen: false).getDiemTrungBinh(maSV);
+    SinhVien student = dsSV.firstWhere((student) => student.maSV == maSV);
+    student.diem = average;
+    notifyListeners();
+  }
 }
