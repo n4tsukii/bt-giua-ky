@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:setting_tab/widgets/settings/info.dart';
 import 'components/custom_widget.dart';
 import 'components/theme.dart';
 
@@ -60,15 +61,22 @@ class _MySettings extends State<MySettings> {
                 ],
               ),
               const Divider(),
-              const SingleSection(
+              SingleSection(
                 children: [
-                  CustomListTile(
+                  const CustomListTile(
                       title: "Trợ giúp",
                       icon: Icons.help_outline_rounded),
                   CustomListTile(
                       title: "Thông tin ứng dụng",
-                      icon: Icons.info_outline_rounded),
-                  CustomListTile(
+                      icon: Icons.info_outline_rounded,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => InfoPage()),
+                        );
+                      },
+                  ),
+                  const CustomListTile(
                       title: "Đăng xuất",
                       icon: Icons.exit_to_app_rounded),
                 ],

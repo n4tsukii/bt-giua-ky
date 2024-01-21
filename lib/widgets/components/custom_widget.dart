@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:setting_tab/widgets/ql_monhoc.dart';
+import 'package:setting_tab/widgets/settings/info.dart';
 import '../../widgets/ql_diem.dart';
 import 'package:setting_tab/widgets/ql_sinhvien.dart';
 import 'package:setting_tab/widgets/settings.dart';
@@ -25,6 +26,11 @@ void handleNavigation(BuildContext context, int index) {
       context,
       MaterialPageRoute(builder: (context) => const MySettings()),
     );
+  } else if (index == 4) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => InfoPage()),
+    );
   }
 }
 
@@ -32,8 +38,9 @@ class CustomListTile extends StatelessWidget {
   final String title;
   final IconData icon;
   final Widget? trailing;
+  final VoidCallback? onTap;
   const CustomListTile(
-      {Key? key, required this.title, required this.icon, this.trailing})
+      {Key? key, required this.title, required this.icon, this.trailing, this.onTap})
       : super(key: key);
 
   @override
@@ -42,7 +49,7 @@ class CustomListTile extends StatelessWidget {
       title: Text(title),
       leading: Icon(icon),
       trailing: trailing,
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }
