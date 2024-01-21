@@ -6,13 +6,13 @@ import 'diem.dart';
 class SinhVien {
   late final int maSV;
   late final String hoten;
-  double average;
+  double diem;
   late final String lop;
 
   SinhVien({
     required this.maSV,
     required this.hoten,
-    required this.average,
+    required this.diem,
     required this.lop,
 
   });
@@ -21,14 +21,14 @@ class SinhVien {
 class StudentProvider with ChangeNotifier {
   double threshold = 0.0;
   List<SinhVien> dsSV = [
-    SinhVien(maSV: 22010498, hoten: "Phạm Như Thuật", average: 0, lop: "CNTT"),
-    SinhVien(maSV: 21010651, hoten: "Mạnh Tâm", average: 0, lop: "CNTT"),
-    SinhVien(maSV: 21010619, hoten: "Nguyễn Tuấn", average: 0, lop: "CNTT")
+    SinhVien(maSV: 22010498, hoten: "Phạm Như Thuật", diem: 5, lop: "CNTT"),
+    SinhVien(maSV: 21010651, hoten: "Mạnh Tâm", diem: 6, lop: "CNTT"),
+    SinhVien(maSV: 21010619, hoten: "Nguyễn Tuấn", diem: 7, lop: "CNTT")
   ];
   List<SinhVien> get currentStudent => filterStudents(threshold);
 
   void addStudent(int maSV, String hoten, double diem, String lop) {
-    SinhVien newStudent = SinhVien(maSV: maSV, hoten: hoten, average: diem, lop: lop);
+    SinhVien newStudent = SinhVien(maSV: maSV, hoten: hoten, diem: diem, lop: lop);
     dsSV.add(newStudent);
     notifyListeners();
   }
@@ -45,12 +45,12 @@ class StudentProvider with ChangeNotifier {
   }
 
   List<SinhVien> filterStudents(double threshold) {
-    return dsSV.where((student) => student.average > threshold).toList();
+    return dsSV.where((student) => student.diem > threshold).toList();
   }
   void updateStudentAverage(BuildContext context ,int maSV){
     double average = Provider.of<DiemProvider>(context, listen: false).getDiemTrungBinh(maSV);
     SinhVien student = dsSV.firstWhere((student) => student.maSV == maSV);
-    student.average = average;
+    student.diem = average;
     notifyListeners();
   }
 }

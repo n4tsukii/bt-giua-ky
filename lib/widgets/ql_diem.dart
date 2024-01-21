@@ -169,7 +169,7 @@ class _QLDiem extends State<QLDiem> {
           maSV: 0,
           hoten: "",
           lop: "",
-          average: 0.0,
+          diem: 0.0,
         ),
       );
 
@@ -210,13 +210,13 @@ class _QLDiem extends State<QLDiem> {
           maSV: 0,
           hoten: "",
           lop: "",
-          average: 0.0,
+          diem: 0.0,
         ),
       );
 
       // Nếu sinh viên tồn tại và có điểm, tính điểm trung bình
-      if (student != null && student.average != null) {
-        double average = student.average;
+      if (student != null && student.diem != null) {
+        double average = student.diem;
         return Text('Điểm trung bình của $selectedStudent: ${average.toStringAsFixed(2)}');
       } else {
         // Xử lý trường hợp sinh viên không tồn tại hoặc không có điểm
