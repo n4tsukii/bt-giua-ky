@@ -89,81 +89,6 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                             }
                           },
                         ),
-                        // title: Row(
-                        //   children: [
-                        //     Container(
-                        //       margin: const EdgeInsets.symmetric(
-                        //         vertical: 10,
-                        //         horizontal: 10,
-                        //       ),
-                        //       decoration: BoxDecoration(
-                        //           border: Border.all(
-                        //             color: Colors.purple,
-                        //             width: 2,
-                        //           )),
-                        //       padding: const EdgeInsets.all(10),
-                        //       child: Text(student.diem.toString(),
-                        //           style: const TextStyle(
-                        //             fontWeight: FontWeight.bold,
-                        //             fontSize: 18,
-                        //             color: Colors.purple,
-                        //           )),
-                        //     ),
-                        //     Column(
-                        //       crossAxisAlignment: CrossAxisAlignment.start,
-                        //       children: [
-                        //         Text(
-                        //           'Mã sinh viên: ${student.maSV}',
-                        //           style: const TextStyle(
-                        //               fontSize: 15,
-                        //               fontWeight: FontWeight.bold),
-                        //         ),
-                        //         Text(
-                        //           'Họ tên: ${student.hoten}',
-                        //           style: const TextStyle(
-                        //               fontSize: 15,
-                        //               fontWeight: FontWeight.bold),
-                        //         ),
-                        //         Text(
-                        //           "Lớp: ${student.lop}",
-                        //           style: const TextStyle(
-                        //               fontSize: 15,
-                        //               fontWeight: FontWeight.bold
-                        //           ),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ],
-                        // ),
-                        // trailing: Row(
-                        //   mainAxisSize: MainAxisSize.min,
-                        //   children: [
-                        //     PopupMenuButton(
-                        //       itemBuilder: (context) {
-                        //         return [
-                        //           const PopupMenuItem<int>(
-                        //             value: 0,
-                        //             child: Text("Sửa"),
-                        //           ),
-                        //           const PopupMenuItem<int>(
-                        //             value: 1,
-                        //             child: Text("Xóa"),
-                        //           ),
-                        //         ];
-                        //       },
-                        //       onSelected:(value) {
-                        //         if (value == 0) {
-                        //           showDialog(
-                        //               context: context,
-                        //               builder: (ctx) => EditStudentScreen(studentId: student.maSV.toString())
-                        //           );
-                        //         } else if (value == 1) {
-                        //           _deleteStudent(context, student);
-                        //         }
-                        //       }
-                        //     )
-                        //   ],
-                        // ),
                       ),
                     );
                   }).toList(),
@@ -188,7 +113,6 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
       ),
     );
   }
-
   void _deleteStudent(BuildContext context, SinhVien student) {
     Provider.of<StudentProvider>(context, listen: false).deleteStudent(student);
   }

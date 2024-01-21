@@ -1,9 +1,9 @@
-import "package:setting_tab/widgets/components/monhoc_state.dart";
 import "package:setting_tab/widgets/components/theme.dart";
 import "/widgets/homepage.dart";
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 import '../models/sinhvien.dart';
+import '../models/monhoc.dart';
 
 void main() {
   runApp(

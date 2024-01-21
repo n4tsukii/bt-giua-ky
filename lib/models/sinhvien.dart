@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import '../models/monhoc.dart';
 
 class SinhVien {
   late final int maSV;

@@ -14,34 +14,40 @@ class FormNhapSinhVien extends StatelessWidget {
     return Consumer<StudentProvider>(
         builder: (context, studentProvider, child) {
           return AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             title: const Text('Thêm sinh viên'),
-            content: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextField(
-                  controller: maController,
-                  decoration: const InputDecoration(labelText: 'Mã sinh viên'),
-                ),
-                TextField(
-                  controller: hoVaTenController,
-                  decoration: const InputDecoration(labelText: 'Họ và Tên'),
-                ),
-                TextField(
-                  controller: lopController,
-                  decoration: const InputDecoration(labelText: 'Lớp'),
-                ),
-                TextField(
-                  controller: diemTotNghiepController,
-                  decoration: const InputDecoration(labelText: 'Điểm'),
-                ),
-              ],
+            content: SizedBox(
+              height: 450,
+              width: 250,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextField(
+                    controller: maController,
+                    decoration: const InputDecoration(labelText: 'Mã sinh viên'),
+                  ),
+                  TextField(
+                    controller: hoVaTenController,
+                    decoration: const InputDecoration(labelText: 'Họ và Tên'),
+                  ),
+                  TextField(
+                    controller: lopController,
+                    decoration: const InputDecoration(labelText: 'Lớp'),
+                  ),
+                  TextField(
+                    controller: diemTotNghiepController,
+                    decoration: const InputDecoration(labelText: 'Điểm'),
+                  ),
+                ],
+              ),
             ),
             actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('Hủy'),
+              ElevatedButton(
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.red),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Hủy', style: TextStyle(color: Colors.white),),
               ),
               TextButton(
                 onPressed: () {

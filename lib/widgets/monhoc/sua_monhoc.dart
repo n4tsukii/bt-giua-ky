@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../components/monhoc_state.dart';
+import '../../models/monhoc.dart';
 
 class SuaMonHoc extends StatefulWidget {
   const SuaMonHoc({super.key,required this.id,});
@@ -28,29 +28,28 @@ class _SuaMonHocState extends State<SuaMonHoc> {
   Widget build(BuildContext context) {
     return AlertDialog(
       shape:
-      RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15)),
-      backgroundColor: Color(0xFFFDEBED),
-      title: Text('Thêm môn học'),
-      content: Container(
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      title: const Text('Sửa môn học'),
+      content: SizedBox(
         height: 150,
         width: 300,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Nhập tên môn học:'),
-            Container(
+            const Text('Nhập tên môn học:'),
+            SizedBox(
               height: 40,
               width: 200,
               child: TextFormField(
                 controller: _mhController,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               children: [
-                Text('Nhập số tín:'),
-                SizedBox(width: 15),
-                Container(
+                const Text('Nhập số tín:'),
+                const SizedBox(width: 15),
+                SizedBox(
                   height: 40,
                   width: 40,
                   child: TextFormField(
@@ -65,21 +64,21 @@ class _SuaMonHocState extends State<SuaMonHoc> {
       ),
       actions: [
         ElevatedButton(
-            style: ButtonStyle(
+            style: const ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(Colors.red)),
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(
-              'Thoát',
-              style: TextStyle(color: Colors.white),
-            )),
+            child: const Text('Hủy', style: TextStyle(color: Colors.white),)
+        ),
         ElevatedButton(
           onPressed: () {
-            context.read<MonHocState>().updateMonHoc(widget.id, _mhController.text,int.parse(_tcController.text));
+            context.read<MonHocState>().updateMonHoc(
+                widget.id, _mhController.text,int.parse(_tcController.text)
+            );
             Navigator.of(context).pop();
           },
-          child: Text('Lưu'),
+          child: const Text('Lưu'),
         ),
       ],
-    );;
+    );
   }
 }

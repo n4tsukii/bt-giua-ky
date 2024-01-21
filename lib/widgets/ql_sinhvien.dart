@@ -48,15 +48,22 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
       body: SingleChildScrollView(
           child: DanhSachSinhVien(danhSachSinhVien)
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: ElevatedButton(
         onPressed: () {
           showDialog(
             context: context,
             builder: (ctx) => FormNhapSinhVien(),
           );
         },
-        child: const Icon(Icons.add),
+        style: ElevatedButton.styleFrom(
+          shape: CircleBorder(),
+          padding: EdgeInsets.all(18),
+          backgroundColor: Color(0xFF62d4b0),
+          minimumSize: Size(40, 40),
+          elevation: 10,
+        ),
+        child: const Text("+", style: TextStyle(fontSize: 40, color: Colors.white),),
       ),
     );
   }
