@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../models/monhoc.dart';
 import '../../models/sinhvien.dart';
 import 'components/theme.dart';
 
@@ -12,7 +13,7 @@ class QLDiem extends StatefulWidget {
 
 class _QLDiem extends State<QLDiem> {
   List<SinhVien> students = [];
-
+  List<Monhoc> courses = [];
   String selectedStudent = '';
   String selectedSubject = '';
   double grade = 0.0;
@@ -20,6 +21,7 @@ class _QLDiem extends State<QLDiem> {
   @override
   Widget build(BuildContext context) {
     students = Provider.of<StudentProvider>(context).currentStudent;
+    courses = Provider.of<MonHocState>(context).course;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -98,10 +100,10 @@ class _QLDiem extends State<QLDiem> {
               selectedSubject = newValue!;
             });
           },
-          items: ['Math', 'History', 'Physics', 'Biology'].map((subject) {
+          items: courses.map((subject) {
             return DropdownMenuItem<String>(
-              value: subject,
-              child: Text(subject),
+              value: subject.ten,
+              child: Text(subject.ten),
             );
           }).toList(),
         ),
@@ -231,7 +233,7 @@ class _QLDiem extends State<QLDiem> {
       }
       if (studentCount > 0) {
         subjectAverage /= studentCount;
-        return Text('Điểm trung bình môn $selectedSubject: ${subjectAverage.toStringAsFixed(2)}');
+        return Text('Điểm môn $selectedSubject: ${subjectAverage.toStringAsFixed(2)}');
       } else {
         return Text('Chưa có sinh viên nào có điểm môn $selectedSubject');
       }
