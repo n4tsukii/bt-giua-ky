@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/monhoc.dart';
 import '../../models/sinhvien.dart';
+import '../../models/diem.dart';
 import 'components/theme.dart';
 
 class QLDiem extends StatefulWidget {
@@ -174,19 +175,22 @@ class _QLDiem extends State<QLDiem> {
 
       // Nếu sinh viên tồn tại, thêm điểm cho môn học đã chọn
       if (student != null) {
-        // Thêm điểm cho môn học đã chọn
-        student.diem = grade;
-        // Hiển thị thông báo thành công
+        Diem newDiem = Diem(
+          maSV: student.maSV,
+          tenMonHoc: selectedSubject,
+          diem: grade,
+        );
+        Provider.of<DiemProvider>(context, listen: false).addDiem(newDiem);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Đã thêm điểm cho $selectedStudent - $selectedSubject: $grade'),
           ),
         );
       } else {
-        // Hiển thị thông báo thành công hoặc thông báo lỗi nếu có
+        // Hiển thị thông báo thông báo lỗi nếu có
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Đã thêm điểm cho $selectedStudent - $selectedSubject: $grade'),
+            content: Text('Không tìm thấy sinh viên $selectedStudent'),
           ),
         );
       }
