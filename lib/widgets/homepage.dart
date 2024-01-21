@@ -70,7 +70,7 @@ class MyHomePage extends StatelessWidget {
                       margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
-                          color: Colors.blueAccent,
+                          color: Colors.blue,
                           boxShadow: [
                             BoxShadow(
                               offset: const Offset(0, 1),
