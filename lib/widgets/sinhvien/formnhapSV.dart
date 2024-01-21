@@ -17,7 +17,7 @@ class FormNhapSinhVien extends StatelessWidget {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             title: const Text('Thêm sinh viên'),
             content: SizedBox(
-              height: 450,
+              height: 250,
               width: 250,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

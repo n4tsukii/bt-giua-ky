@@ -23,7 +23,7 @@ class EditStudentScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           title: const Text('Sửa sinh viên'),
           content: SizedBox(
-            height: 450,
+            height: 250,
             width: 250,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
