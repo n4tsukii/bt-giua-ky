@@ -64,7 +64,7 @@ class _MonHocScreenState extends State<MonHocScreen>  {
                           child: Row(
                             children: [
                               const Image(
-                                  image: AssetImage('assests/icons/book1.png'),
+                                  image: AssetImage('assets/icons/book1.png'),
                                   width: 10,
                                   height: 10
                               ),

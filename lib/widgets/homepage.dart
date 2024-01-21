@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   leading: Image(
-                    image: AssetImage("assests/icons/internship.png"),
+                    image: AssetImage("assets/icons/internship.png"),
                   ),
                 ),
                 SizedBox(height: 30),
@@ -85,7 +85,7 @@ class MyHomePage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(10),
                             child: Image.asset(
-                              "assests/icons/${imgList[index]}.png",
+                              "assets/icons/${imgList[index]}.png",
                               width: 70,
                               height: 70,
                             ),
