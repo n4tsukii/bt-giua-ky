@@ -14,9 +14,9 @@ class Monhoc {
 
 class MonHocState with ChangeNotifier{
   List<Monhoc> listMonHoc = [
-    Monhoc(ten: "Toan", tinChi: 3),
-    Monhoc(ten: "Hoa", tinChi: 3),
-    Monhoc(ten: "Ly", tinChi: 2),
+    Monhoc(ten: "Toán", tinChi: 3),
+    Monhoc(ten: "Lý", tinChi: 3),
+    Monhoc(ten: "Hóa", tinChi: 2),
   ];
   List<Monhoc> get course => listMonHoc;
 

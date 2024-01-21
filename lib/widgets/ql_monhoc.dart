@@ -60,7 +60,7 @@ class _MonHocScreenState extends State<MonHocScreen>  {
                         title: Text(
                           'Môn học: ${monHoc.ten}',
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 17,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -69,7 +69,7 @@ class _MonHocScreenState extends State<MonHocScreen>  {
                           children: [
                             Text(
                               'Số tín chỉ: ${monHoc.tinChi}',
-                              style: const TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 15),
                             ),
                           ],
                         ),
@@ -117,77 +117,6 @@ class _MonHocScreenState extends State<MonHocScreen>  {
           }
         },
       ),
-      // body: Selector<MonHocState, List<Monhoc>>(
-      //   selector: (ctx, state) => state.listMonHoc,
-      //   builder: (context, value, child) {
-      //     return ListView.builder(
-      //       itemCount: value.length,
-      //       itemBuilder: (context, index) {
-      //         return Padding(
-      //           padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
-      //           child: Container(
-      //             height: 80,
-      //             decoration: BoxDecoration(
-      //                 color: Color(0xFFf4f6f5),
-      //                 borderRadius: BorderRadius.circular(10)
-      //             ),
-      //             child: Row(
-      //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //               children: [
-      //                 GestureDetector(
-      //                   onTap: () {
-      //                     showDialog(context: context, builder: (context) {
-      //                       return SuaMonHoc(id: index);
-      //                     },);
-      //                   },
-      //                   child: Container(
-      //                     child: Row(
-      //                       children: [
-      //                         Image.asset(
-      //                             'assets/icons/book1.png',
-      //                           width: 40,
-      //                           height: 40,
-      //                         ),
-      //                         SizedBox(width: 12),
-      //                         Column(
-      //                           mainAxisAlignment: MainAxisAlignment.center,
-      //                           crossAxisAlignment: CrossAxisAlignment.start,
-      //                           children: [
-      //                             Text("Môn học: ${value[index].ten}"),
-      //                             Text("số tín: ${value[index].tinChi}"),
-      //                           ],
-      //                         )
-      //                       ],
-      //                     ),
-      //                   ),
-      //                 ),
-      //                 Container(
-      //                   margin: EdgeInsets.symmetric(vertical: 12),
-      //                   height: 35,
-      //                   width: 35,
-      //                   decoration: BoxDecoration(
-      //                     color: Color(0xFFE40327),
-      //                     borderRadius: BorderRadius.circular(20),
-      //                     border: Border.all(color: Color(0xFF950018)),
-      //                   ),
-      //                   child: IconButton(
-      //                     padding: EdgeInsets.all(5),
-      //                     color: Colors.white,
-      //                     icon: Icon(Icons.close),
-      //                     iconSize: 20,
-      //                     onPressed: () {
-      //                       context.read<MonHocState>().deleteMonHoc(value[index]);
-      //                     },
-      //                   ),
-      //                 ),
-      //               ],
-      //             ),
-      //           ),
-      //         );
-      //       },
-      //     );
-      //   },
-      // ),
       floatingActionButton: ElevatedButton(
         onPressed: () {
           showDialog(context: context, builder: (context) {

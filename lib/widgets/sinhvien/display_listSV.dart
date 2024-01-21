@@ -40,7 +40,7 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                             student.diem.toString(),
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                              fontSize: 19,
                               color: Colors.purple,
                             ),
                           ),
@@ -48,7 +48,7 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                         title: Text(
                           'Mã sinh viên: ${student.maSV}',
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 17,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -57,11 +57,11 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                           children: [
                             Text(
                               'Họ tên: ${student.hoten}',
-                              style: const TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 15),
                             ),
                             Text(
                               'Lớp: ${student.lop}',
-                              style: const TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 15),
                             ),
                           ],
                         ),
