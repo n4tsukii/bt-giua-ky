@@ -23,29 +23,29 @@ class _ThemMonHocState extends State<ThemMonHoc> {
   Widget build(BuildContext context) {
     return AlertDialog(
       shape:
-      RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15)),
-      backgroundColor: Color(0xFFFDEBED),
-      title: Text('Thêm môn học'),
-      content: Container(
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      backgroundColor: const Color(0xFFFDEBED),
+      title: const Text('Thêm môn học'),
+      content: SizedBox(
         height: 150,
         width: 300,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Nhập tên môn học:'),
-            Container(
+            const Text('Nhập tên môn học:'),
+            SizedBox(
               height: 40,
               width: 200,
               child: TextFormField(
                 controller: _mhController,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               children: [
-                Text('Nhập số tín:'),
-                SizedBox(width: 15),
-                Container(
+                const Text('Nhập số tín:'),
+                const SizedBox(width: 15),
+                SizedBox(
                   height: 40,
                   width: 40,
                   child: TextFormField(
@@ -73,7 +73,7 @@ class _ThemMonHocState extends State<ThemMonHoc> {
                 tinChi: int.parse(_tcController.text)));
             Navigator.of(context).pop();
           },
-          child: Text('Lưu'),
+          child: const Text('Lưu'),
         ),
       ],
     );

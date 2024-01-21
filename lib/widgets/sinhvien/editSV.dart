@@ -5,7 +5,7 @@ import '../../models/sinhvien.dart';
 class EditStudentScreen extends StatelessWidget {
   final String studentId;
 
-  EditStudentScreen({required this.studentId});
+  const EditStudentScreen({super.key, required this.studentId});
 
   @override
   Widget build(BuildContext context) {
