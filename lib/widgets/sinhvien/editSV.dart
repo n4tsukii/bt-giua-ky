@@ -12,10 +12,10 @@ class EditStudentScreen extends StatelessWidget {
     var studentProvider = Provider.of<StudentProvider>(context);
     var student = studentProvider.dsSV.firstWhere((student) => student.maSV.toString() == studentId);
 
-    final maController = TextEditingController();
-    final hoVaTenController = TextEditingController();
-    final diemTotNghiepController = TextEditingController();
-    final lopController = TextEditingController();
+    final maController = TextEditingController(text: student.maSV.toString());
+    final hoVaTenController = TextEditingController(text: student.hoten);
+    final diemTotNghiepController = TextEditingController(text: student.diem.toString());
+    final lopController = TextEditingController(text: student.lop);
 
     return Consumer<StudentProvider>(
       builder: (context, studentProvider, child) {

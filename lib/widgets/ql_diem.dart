@@ -180,7 +180,7 @@ class _QLDiem extends State<QLDiem> {
           tenMonHoc: selectedSubject,
           diem: grade,
         );
-        Provider.of<DiemProvider>(context, listen: false).addDiem(newDiem);
+          Provider.of<DiemProvider>(context, listen: false).addDiem(newDiem);
 
         // Cập nhật điểm trung bình của sinh viên sau khi thêm điểm
         Provider.of<StudentProvider>(context, listen: false).updateStudentAverage(context, student.maSV);
