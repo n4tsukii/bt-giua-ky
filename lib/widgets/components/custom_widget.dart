@@ -8,12 +8,12 @@ void handleNavigation(BuildContext context, int index) {
   if (index == 0) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ql_sinhvien()),
+      MaterialPageRoute(builder: (context) => const ql_sinhvien()),
     );
   } else if (index == 1) {
     Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MonHocScreen()),
+        MaterialPageRoute(builder: (context) => const MonHocScreen()),
     );
   } else if (index == 2) {
     Navigator.push(
@@ -27,7 +27,6 @@ void handleNavigation(BuildContext context, int index) {
     );
   }
 }
-
 
 class CustomListTile extends StatelessWidget {
   final String title;

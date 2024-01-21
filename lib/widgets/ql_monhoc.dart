@@ -101,7 +101,6 @@ class _MonHocScreenState extends State<MonHocScreen>  {
                     );
                   }).toList(),
                 );
-
           } else {
             return SizedBox(
               height: MediaQuery.of(context).size.height * 0.5,

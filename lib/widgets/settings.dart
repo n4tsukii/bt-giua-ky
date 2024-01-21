@@ -13,7 +13,7 @@ class MySettings extends StatefulWidget {
 class _MySettings extends State<MySettings> {
   @override
   Widget build(BuildContext context) {
-    bool _darkTheme = Provider.of<ThemeProvider>(context).isDarkModeEnabled;
+    bool darkTheme = Provider.of<ThemeProvider>(context).isDarkModeEnabled;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -46,9 +46,10 @@ class _MySettings extends State<MySettings> {
                       title: "Chế độ tối",
                       icon: Icons.dark_mode_outlined,
                       trailing: Switch(
-                          value: _darkTheme,
+                          value: darkTheme,
                           onChanged: (value) {
-                            Provider.of<ThemeProvider>(context, listen: false).toggleDarkMode();
+                            Provider.of<ThemeProvider>(context, listen: false)
+                                .toggleDarkMode();
                           })),
                   const CustomListTile(
                       title: "Thông báo",

@@ -4,6 +4,8 @@ import '../../models/sinhvien.dart';
 import 'components/theme.dart';
 
 class QLDiem extends StatefulWidget {
+  const QLDiem({super.key});
+
   @override
   _QLDiem createState() => _QLDiem();
 }
@@ -125,7 +127,7 @@ class _QLDiem extends State<QLDiem> {
             Expanded(
               child: _buildStudentDropdown(),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
               child: _buildSubjectDropdown(),
             ),
@@ -144,12 +146,12 @@ class _QLDiem extends State<QLDiem> {
             border: OutlineInputBorder(),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         ElevatedButton(
             onPressed: () {
               _addGrade();
             },
-            child: Text('Thêm điểm'),
+            child: const Text('Thêm điểm'),
         )
       ],
     );
@@ -227,7 +229,6 @@ class _QLDiem extends State<QLDiem> {
           studentCount++;
         }
       }
-
       if (studentCount > 0) {
         subjectAverage /= studentCount;
         return Text('Điểm trung bình môn $selectedSubject: ${subjectAverage.toStringAsFixed(2)}');
@@ -235,7 +236,6 @@ class _QLDiem extends State<QLDiem> {
         return Text('Chưa có sinh viên nào có điểm môn $selectedSubject');
       }
     }
-
     return Container();
   }
 }

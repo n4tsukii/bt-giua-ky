@@ -6,7 +6,7 @@ import '../../models/sinhvien.dart';
 
 class DanhSachSinhVien extends StatefulWidget {
   final List<SinhVien> danhSachSinhVien;
-  DanhSachSinhVien(this.danhSachSinhVien);
+  const DanhSachSinhVien(this.danhSachSinhVien, {super.key});
 
   @override
   State<DanhSachSinhVien> createState() => _DanhSachSinhVienState();

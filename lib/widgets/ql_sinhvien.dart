@@ -5,7 +5,6 @@ import 'components/theme.dart';
 import 'sinhvien/display_listSV.dart';
 import 'sinhvien/formnhapSV.dart';
 
-
 class ql_sinhvien extends StatefulWidget {
   const ql_sinhvien({super.key});
   @override
@@ -46,9 +45,7 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
         backgroundColor: Provider.of<ThemeProvider>(context).appBarColor,
       ),
       body: SingleChildScrollView(
-          child: DanhSachSinhVien(danhSachSinhVien)
-      ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+          child: DanhSachSinhVien(danhSachSinhVien)),
       floatingActionButton: ElevatedButton(
         onPressed: () {
           showDialog(
@@ -57,10 +54,10 @@ class _QuanLySinhVienState extends State<ql_sinhvien> with ChangeNotifier {
           );
         },
         style: ElevatedButton.styleFrom(
-          shape: CircleBorder(),
-          padding: EdgeInsets.all(18),
-          backgroundColor: Color(0xFF62d4b0),
-          minimumSize: Size(40, 40),
+          shape: const CircleBorder(),
+          padding: const EdgeInsets.all(18),
+          backgroundColor: const Color(0xFF62d4b0),
+          minimumSize: const Size(40, 40),
           elevation: 10,
         ),
         child: const Text("+", style: TextStyle(fontSize: 40, color: Colors.white),),
