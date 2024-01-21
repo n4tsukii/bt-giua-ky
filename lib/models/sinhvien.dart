@@ -18,8 +18,9 @@ class SinhVien {
 class StudentProvider with ChangeNotifier {
   double threshold = 0.0;
   List<SinhVien> dsSV = [
-    SinhVien(maSV: 22010498, hoten: "Pham Nhu Thuat", diem: 2, lop: "K16"),
-    SinhVien(maSV: 21010651, hoten: "Manh Tam", diem: 3, lop: "K15"),
+    SinhVien(maSV: 22010498, hoten: "Pham Nhu Thuat", diem: 5, lop: "K16"),
+    SinhVien(maSV: 21010651, hoten: "Manh Tam", diem: 6, lop: "K15"),
+    SinhVien(maSV: 21010619, hoten: "Nguyeb Tuan", diem: 7, lop: "K15")
   ];
   List<SinhVien> get currentStudent => filterStudents(threshold);
 
