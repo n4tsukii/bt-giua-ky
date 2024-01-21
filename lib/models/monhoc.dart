@@ -1,19 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
-class subject{
-  final String name;
-  final double? grade;
+class Monhoc {
+  final String ten;
+  final double? diem;
+  final int tinChi;
 
-  subject({
-    this.grade = null,
-    required this.name,
+  Monhoc({
+    this.diem,
+    required this.ten,
+    required this.tinChi,
   });
 }
 
-class SubjectProvider with ChangeNotifier {
-  List<subject> listsubject = [
-    subject(name: "Toan"),
-    subject(name: "Hoa"),
-  ];
-}
+// Inside MonHocState class
+// class MonHocState with ChangeNotifier {
+//   List<Monhoc> listMonHoc = [
+//     Monhoc(ten: "Toan", tinChi: 3),
+//     Monhoc(ten: "Hoa", tinChi: 3),
+//     Monhoc(ten: "Ly", tinChi: 2),
+//   ];
+// }

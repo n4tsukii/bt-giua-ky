@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:setting_tab/widgets/ql_monhoc.dart';
 import '../../widgets/ql_diem.dart';
 import 'package:setting_tab/widgets/ql_sinhvien.dart';
 import 'package:setting_tab/widgets/settings.dart';
@@ -10,6 +11,10 @@ void handleNavigation(BuildContext context, int index) {
       MaterialPageRoute(builder: (context) => ql_sinhvien()),
     );
   } else if (index == 1) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MonHocScreen()),
+    );
   } else if (index == 2) {
     Navigator.push(
       context,

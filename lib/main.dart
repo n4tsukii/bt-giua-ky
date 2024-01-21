@@ -1,6 +1,6 @@
+import "package:setting_tab/widgets/components/monhoc_state.dart";
 import "package:setting_tab/widgets/components/theme.dart";
 import "/widgets/homepage.dart";
-import "/models/user_interface.dart";
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 import '../models/sinhvien.dart';
@@ -9,9 +9,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => UserInterface()),
         ChangeNotifierProvider(create: (context) => StudentProvider()),
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => MonHocState()),
       ],
       child: const MyApp(),
     ),
