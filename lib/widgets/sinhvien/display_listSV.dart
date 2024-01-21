@@ -114,7 +114,43 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
     );
   }
   void _deleteStudent(BuildContext context, SinhVien student) {
-    Provider.of<StudentProvider>(context, listen: false).deleteStudent(student);
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title:  const Text(
+            "Xác nhận xóa",
+            style: TextStyle(
+              fontSize: 25,
+                fontWeight: FontWeight.bold,
+            ),
+          ),
+          content: const Text(
+            "Bạn có chắc chắn muốn xóa sinh viên này không?",
+            style: TextStyle(
+                fontSize: 17,
+            ),
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("Hủy"),
+            ),
+            ElevatedButton(
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.red),
+              ),
+              onPressed: () {
+                Provider.of<StudentProvider>(context, listen: false).deleteStudent(student);
+                Navigator.pop(context); // Đóng hộp thoại
+              },
+              child: const Text("Xóa", style: TextStyle(color: Colors.white),),
+            ),
+          ],
+        );
+      },
+    );
   }
-
 }

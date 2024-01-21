@@ -49,7 +49,7 @@ class FormNhapSinhVien extends StatelessWidget {
                 onPressed: () => Navigator.of(context).pop(),
                 child: const Text('Hủy', style: TextStyle(color: Colors.white),),
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () {
                   int id = int.parse(maController.text);
                   String name = hoVaTenController.text;

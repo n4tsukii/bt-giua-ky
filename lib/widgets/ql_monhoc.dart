@@ -135,6 +135,44 @@ class _MonHocScreenState extends State<MonHocScreen>  {
     );
   }
   void _deleteMonHoc(BuildContext context, Monhoc monHoc){
-    Provider.of<MonHocState>(context, listen: false).deleteMonHoc(monHoc);
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title:  const Text(
+            "Xác nhận xóa",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          content: const Text(
+            "Bạn có chắc chắn muốn xóa môn này không?",
+            style: TextStyle(
+              fontSize: 17,
+            ),
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("Hủy"),
+            ),
+            ElevatedButton(
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.red),
+              ),
+              onPressed: () {
+                Provider.of<MonHocState>(context, listen: false).deleteMonHoc(monHoc);
+                Navigator.pop(context); // Đóng hộp thoại
+              },
+              child: const Text("Xóa", style: TextStyle(color: Colors.white),),
+            ),
+          ],
+        );
+      },
+    );
   }
+
 }
