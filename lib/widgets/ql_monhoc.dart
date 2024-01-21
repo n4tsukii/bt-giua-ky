@@ -63,12 +63,17 @@ class _MonHocScreenState extends State<MonHocScreen>  {
                         child: Container(
                           child: Row(
                             children: [
-                              const Image(
-                                  image: AssetImage('assets/icons/book1.png'),
-                                  width: 10,
-                                  height: 10
+                              Image.asset(
+                                  'assets/icons/book1.png',
+                                width: 40,
+                                height: 40,
                               ),
-                              SizedBox(width: 10),
+                              // const Image(
+                              //     image: AssetImage('assets/icons/book1.png'),
+                              //     width: 10,
+                              //     height: 10
+                              // ),
+                              SizedBox(width: 12),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
