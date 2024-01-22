@@ -34,10 +34,10 @@ class FormNhapSinhVien extends StatelessWidget {
                     controller: lopController,
                     decoration: const InputDecoration(labelText: 'Lớp'),
                   ),
-                  TextField(
-                    controller: diemTotNghiepController,
-                    decoration: const InputDecoration(labelText: 'Điểm'),
-                  ),
+                  // TextField(
+                  //   controller: diemTotNghiepController,
+                  //   decoration: const InputDecoration(labelText: 'Điểm'),
+                  // ),
                 ],
               ),
             ),
@@ -53,11 +53,11 @@ class FormNhapSinhVien extends StatelessWidget {
                 onPressed: () {
                   int id = int.parse(maController.text);
                   String name = hoVaTenController.text;
-                  double diem = double.parse(diemTotNghiepController.text);
+                  // double diem = double.parse(diemTotNghiepController.text);
                   String lop = lopController.text;
 
                   Provider.of<StudentProvider>(context, listen: false)
-                      .addStudent(id, name, diem, lop);
+                      .addStudent(id, name, lop);
                   Navigator.of(context).pop();
                 },
                 child: const Text('Thêm'),

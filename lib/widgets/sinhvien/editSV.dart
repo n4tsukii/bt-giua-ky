@@ -14,7 +14,7 @@ class EditStudentScreen extends StatelessWidget {
 
     final maController = TextEditingController(text: student.maSV.toString());
     final hoVaTenController = TextEditingController(text: student.hoten);
-    final diemTotNghiepController = TextEditingController(text: student.diem.toString());
+    // final diemTotNghiepController = TextEditingController(text: student.diem.toString());
     final lopController = TextEditingController(text: student.lop);
 
     return Consumer<StudentProvider>(
@@ -40,10 +40,10 @@ class EditStudentScreen extends StatelessWidget {
                   controller: lopController,
                   decoration: const InputDecoration(labelText: 'Lớp'),
                 ),
-                TextField(
-                  controller: diemTotNghiepController,
-                  decoration: const InputDecoration(labelText: 'Điểm'),
-                ),
+                // TextField(
+                //   controller: diemTotNghiepController,
+                //   decoration: const InputDecoration(labelText: 'Điểm'),
+                // ),
               ],
             ),
           ),
@@ -60,11 +60,11 @@ class EditStudentScreen extends StatelessWidget {
                 int newMaSV = maController.text.isNotEmpty ? int.parse(maController.text) : student.maSV;
                 String newHoten = hoVaTenController.text.isNotEmpty ? hoVaTenController.text : student.hoten;
                 String newLop = lopController.text.isNotEmpty ? lopController.text : student.lop;
-                double newDiem = diemTotNghiepController.text.isNotEmpty ? double.parse(diemTotNghiepController.text) : student.diem;
+                // double newDiem = diemTotNghiepController.text.isNotEmpty ? double.parse(diemTotNghiepController.text) : student.diem;
 
                 _deleteStudent(context, student);
                 Provider.of<StudentProvider>(context, listen: false)
-                    .addStudent(newMaSV, newHoten, newDiem, newLop);
+                    .addStudent(newMaSV, newHoten, newLop);
 
                 Navigator.of(context).pop();
               },
