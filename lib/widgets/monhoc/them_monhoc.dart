@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/monhoc.dart';
+import '../components/theme.dart';
 
 class ThemMonHoc extends StatefulWidget {
   const ThemMonHoc({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _ThemMonHocState extends State<ThemMonHoc> {
     return AlertDialog(
       shape:
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      backgroundColor: const Color(0xFFFDEBED),
+        backgroundColor: Provider.of<ThemeProvider>(context).appBarColor,
       title: const Text('Thêm môn học'),
       content: SizedBox(
         height: 150,
