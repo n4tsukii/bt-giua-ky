@@ -247,9 +247,9 @@ class _QLDiem extends State<QLDiem> {
       }
       if (studentCount > 0) {
         subjectAverage /= studentCount;
-        return Text('Điểm môn $selectedSubject: ${subjectAverage.toStringAsFixed(2)}');
+        return Text('');
       } else {
-        return Text('Sinh viên chưa có điểm môn $selectedSubject');
+        return Text('');
       }
     }
     return Container();
