@@ -182,7 +182,6 @@ class _QLDiem extends State<QLDiem> {
         );
           Provider.of<DiemProvider>(context, listen: false).addDiem(newDiem);
 
-        // Cập nhật điểm trung bình của sinh viên sau khi thêm điểm
         Provider.of<StudentProvider>(context, listen: false).updateStudentAverage(context, student.maSV);
 
         ScaffoldMessenger.of(context).showSnackBar(
@@ -191,7 +190,6 @@ class _QLDiem extends State<QLDiem> {
           ),
         );
       } else {
-        // Hiển thị thông báo thông báo lỗi nếu có
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Không tìm thấy sinh viên $selectedStudent'),
@@ -203,7 +201,6 @@ class _QLDiem extends State<QLDiem> {
 
   Widget _buildStudentAverage() {
     if (selectedStudent.isNotEmpty) {
-      // Tìm sinh viên trong danh sách
       SinhVien? student = students.firstWhere(
             (SinhVien student) => student.hoten == selectedStudent,
         orElse: () => SinhVien(
@@ -214,12 +211,10 @@ class _QLDiem extends State<QLDiem> {
         ),
       );
 
-      // Nếu sinh viên tồn tại và có điểm, tính điểm trung bình
       if (student != null && student.diem != null) {
         double average = student.diem;
         return Text('Điểm trung bình của $selectedStudent: ${average.toStringAsFixed(2)}');
       } else {
-        // Xử lý trường hợp sinh viên không tồn tại hoặc không có điểm
         return Text('Không có thông tin điểm của $selectedStudent');
       }
     }
@@ -229,7 +224,15 @@ class _QLDiem extends State<QLDiem> {
 
   Widget _buildSubjectStats() {
     if (selectedSubject.isNotEmpty) {
-      // Tính điểm trung bình của môn học cho tất cả sinh viên
+      SinhVien? student = students.firstWhere(
+            (SinhVien student) => student.hoten == selectedStudent,
+        orElse: () => SinhVien(
+          maSV: 0,
+          hoten: "",
+          lop: "",
+          diem: 0.0,
+        ),
+      );
       double subjectAverage = 0.0;
       int studentCount = 0;
 
@@ -247,7 +250,12 @@ class _QLDiem extends State<QLDiem> {
       }
       if (studentCount > 0) {
         subjectAverage /= studentCount;
-        return Text('Điểm môn $selectedSubject: ${subjectAverage.toStringAsFixed(2)}');
+        List<Diem> diemSV = Provider.of<DiemProvider>(context).getDiemByMaSV(student.maSV);
+        Diem? diemMonHoc = diemSV.firstWhere(
+              (diem) => diem.tenMonHoc == selectedSubject,
+          orElse: () => Diem(maSV: 0, tenMonHoc: "", diem: 0.0),
+        );
+        return Text('Điểm môn $selectedSubject: ${diemMonHoc.diem.toStringAsFixed(2)}');
       } else {
         return Text('Sinh viên chưa có điểm môn $selectedSubject');
       }
