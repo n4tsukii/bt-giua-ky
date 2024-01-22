@@ -37,7 +37,7 @@ class _DanhSachSinhVienState extends State<DanhSachSinhVien> {
                             color: Colors.purple.withOpacity(0.1),
                           ),
                           child: Text(
-                            student.diem.toString(),
+                            student.diem.toStringAsFixed(2),
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 19,
